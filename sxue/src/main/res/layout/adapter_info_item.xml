@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.base.InfoItemViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:clickCommand="@{viewModel.itemCommand}">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_75"
+            android:layout_height="@dimen/dimen_75"
+            android:layout_marginTop="22dp"
+            app:placeholderImageRes="@{viewModel.placeholder}"/>
+
+        <TextView style="@style/text_normal"
+                  android:layout_marginTop="@dimen/dimen_12"
+                  android:text="@{viewModel.text}"
+                  tools:text="课程介绍"/>
+    </LinearLayout>
+</layout>

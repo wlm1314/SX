@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.edu.sxue.R" />
+
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.organ.viewmodel.OrganInfoViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/dimen_20"
+            android:layout_marginLeft="@dimen/dimen_7"
+            android:layout_marginRight="@dimen/dimen_7"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:background="@drawable/rect_radius_white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_img"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="@color/white"
+                    app:placeholderImageRes="@{R.mipmap.organ_placeholder1}"
+                    android:scaleType="fitXY"
+                    app:uri="@{viewModel.imgUrl}" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dimen_15"
+                    android:paddingTop="@dimen/dimen_15">
+
+                    <LinearLayout
+                        android:id="@+id/layout_jgjs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_75"
+                            android:layout_height="@dimen/dimen_75"
+                            android:src="@mipmap/jgjs" />
+
+                        <TextView
+                            style="@style/text_normal"
+                            android:layout_marginTop="@dimen/dimen_12"
+                            android:text="机构介绍" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_kctb"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_75"
+                            android:layout_height="@dimen/dimen_75"
+                            android:src="@mipmap/kctb" />
+
+                        <TextView
+                            style="@style/text_normal"
+                            android:layout_marginTop="@dimen/dimen_12"
+                            android:text="课程图标" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dimen_15"
+                    android:paddingTop="@dimen/dimen_15">
+
+                    <LinearLayout
+                        android:id="@+id/layout_szll"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView2"
+                            android:layout_width="@dimen/dimen_75"
+                            android:layout_height="@dimen/dimen_75"
+                            android:src="@mipmap/szll" />
+
+                        <TextView
+                            style="@style/text_normal"
+                            android:layout_marginTop="@dimen/dimen_12"
+                            android:text="师资力量" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layout_jghj"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="@dimen/dimen_75"
+                            android:layout_height="@dimen/dimen_75"
+                            android:src="@mipmap/jghj" />
+
+                        <TextView
+                            style="@style/text_normal"
+                            android:layout_marginTop="@dimen/dimen_12"
+                            android:text="机构环境" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dimen_15"
+                    android:paddingTop="@dimen/dimen_15">
+
+                    <LinearLayout
+                        android:id="@+id/layout_hyzz"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="@dimen/dimen_75"
+                            android:layout_height="@dimen/dimen_75"
+                            android:src="@mipmap/hyzz" />
+
+                        <TextView
+                            style="@style/text_normal"
+                            android:layout_marginTop="@dimen/dimen_12"
+                            android:text="行业资质" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</layout>

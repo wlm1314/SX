@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.edu.sxue.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.classes.viewmodel.ClassItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_bg"
+        android:orientation="vertical"
+        app:clickCommand="@{viewModel.itemCommand}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rect_radius_white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:minHeight="125dp"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    style="@style/text_sub"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="@dimen/dimen_10"
+                    android:background="@mipmap/time_bg"
+                    android:gravity="center"
+                    android:text="@{viewModel.start_end}"
+                    android:textSize="@dimen/text_size_11"
+                    tools:text="2017.08.09 14:00 - 15:00" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingLeft="16dp">
+
+                        <TextView
+                            style="@style/text_bigger"
+                            android:text="@{viewModel.course}"
+                            android:textSize="@dimen/text_size_15"
+                            tools:text="美术创意设计课" />
+
+                        <TextView
+                            style="@style/text_sub"
+                            android:drawableLeft="@mipmap/jigou"
+                            android:drawablePadding="5dp"
+                            android:paddingTop="@dimen/dimen_5"
+                            android:text="@{viewModel.institution_name}"
+                            android:textSize="@dimen/text_size_13"
+                            tools:text="北京鑫美传媒" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="@{viewModel.isclass?View.VISIBLE:View.GONE}">
+
+                            <TextView
+                                style="@style/text_sub"
+                                android:paddingTop="@dimen/dimen_5"
+                                android:text="报名状态："
+                                android:textSize="@dimen/text_size_11" />
+
+                            <TextView
+                                style="@style/text_sub"
+                                android:paddingTop="@dimen/dimen_5"
+                                android:text="@{viewModel.member}"
+                                android:textColor="@color/blue"
+                                android:textSize="@dimen/text_size_11"
+                                tools:text="未报满" />
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/text_sub"
+                            android:drawableLeft="@mipmap/time"
+                            android:drawablePadding="@dimen/dimen_5"
+                            android:paddingRight="@dimen/dimen_15"
+                            android:paddingTop="@dimen/dimen_5"
+                            android:text="@{viewModel.time}"
+                            android:textSize="@dimen/text_size_11"
+                            tools:text="45" />
+
+                        <TextView
+                            style="@style/text_sub"
+                            android:drawableLeft="@mipmap/ic_address"
+                            android:drawablePadding="@dimen/dimen_5"
+                            android:paddingTop="@dimen/dimen_5"
+                            android:text="@{viewModel.address}"
+                            android:textSize="@dimen/text_size_11"
+                            tools:text="地下室一层" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="113dp"
+                            android:layout_height="76dp"
+                            app:placeholderImageRes="@{R.mipmap.class_placeholder}"
+                            app:uri="@{viewModel.pic}" />
+
+                        <TextView
+                            style="@style/text_normal"
+                            android:layout_width="110dp"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/rect_radius_blue"
+                            android:gravity="center"
+                            android:text="我要上课"
+                            android:textColor="@color/white"
+                            android:visibility="@{viewModel.isConfirm?View.VISIBLE:View.GONE}"
+                            app:clickCommand="@{viewModel.confirmCommand}" />
+
+                        <TextView
+                            style="@style/text_normal"
+                            android:layout_width="110dp"
+                            android:layout_height="23dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="8dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/rect_radius_red"
+                            android:gravity="center"
+                            tools:visibility="gone"
+                            android:text="取消上课"
+                            android:textColor="@color/white"
+                            android:visibility="@{viewModel.isCancel?View.VISIBLE:View.GONE}"
+                            app:clickCommand="@{viewModel.cancelCommand}" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

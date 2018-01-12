@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.organ.viewmodel.OrganItemViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_bg"
+        android:orientation="vertical"
+        app:clickCommand="@{viewModel.itemCommand}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rect_radius_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                app:placeholderImageRes="@{R.mipmap.organ_placeholder}"
+                app:uri="@{viewModel.logo}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="23dp">
+
+                <TextView
+                    style="@style/text_bigger"
+                    android:text="@{viewModel.name}"
+                    android:textSize="@dimen/text_size_15"
+                    tools:text="美术创意设计课"/>
+
+                <TextView
+                    style="@style/text_sub"
+                    android:drawableLeft="@mipmap/dianhua"
+                    android:drawablePadding="5dp"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:text="@{viewModel.phone}"
+                    android:textColor="#ff0000"
+                    android:textSize="@dimen/text_size_13"
+                    tools:text="1371234567"/>
+                <TextView
+                    style="@style/text_sub"
+                    android:layout_width="fill_parent"
+                    android:drawableLeft="@mipmap/didian"
+                    android:drawablePadding="5dp"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:text="@{viewModel.address}"
+                    android:textSize="@dimen/text_size_11"
+                    tools:text="北京市昌平区回龙观文化路89号"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

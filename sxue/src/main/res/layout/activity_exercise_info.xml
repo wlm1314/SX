@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable name="viewModel" type="com.edu.sxue.module.exercise.viewmodel.ExerciseInfoViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:background="#e6e6e6"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar"/>
+
+        <ScrollView android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:background="#e6e6e6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <ImageView
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:scaleType="fitXY"
+                    android:id="@+id/iv_img"
+                    android:layout_width="match_parent"
+                    app:placeholderImageRes="@{R.mipmap.exer_placeholder1}"
+                    app:uri="@{viewModel.imgUrl}"
+                    android:layout_height="206dp"/>
+
+                <View style="@style/line_h"/>
+                 <LinearLayout
+                     android:layout_marginTop="5dp"
+                     android:layout_marginLeft="10dp"
+                     android:layout_marginRight="10dp"
+                     android:layout_marginBottom="5dp"
+                     android:layout_width="fill_parent"
+                     android:orientation="vertical"
+                     android:background="@drawable/bt_kecheng"
+                     android:layout_height="wrap_content">
+                <TextView
+                    android:drawablePadding="5dp"
+                    android:drawableLeft="@mipmap/jigou"
+                    android:layout_margin="8dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/cv_exercise_name"
+                    android:textSize="11sp"
+                    android:textColor="#3f3d3d"
+                    android:text="北京星美传媒"/>
+                     <TextView
+                         android:drawablePadding="5dp"
+                         android:drawableLeft="@mipmap/time"
+                         android:layout_margin="8dp"
+                         android:layout_width="fill_parent"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/cv_organ_time"
+                         android:textColor="#fc9208"
+                         android:textSize="11sp"
+                         android:text="2017.03.22-19:00"/>
+                     <TextView
+                         android:drawablePadding="5dp"
+                         android:drawableLeft="@mipmap/didian"
+                         android:layout_margin="8dp"
+                         android:layout_width="fill_parent"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/cv_organ_address"
+                         android:textColor="#3f3d3d"
+                         android:textSize="11sp"
+                         android:text="北京"/>
+                     <TextView
+                         android:drawablePadding="5dp"
+                         android:drawableLeft="@mipmap/renwu"
+                         android:layout_margin="8dp"
+                         android:layout_width="fill_parent"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/cv_organ_person"
+                         android:textColor="#3f3d3d"
+                         android:textSize="11sp"
+                         android:text="篱笆"/>
+                     <TextView
+                         android:drawablePadding="5dp"
+                         android:drawableLeft="@mipmap/dianhua"
+                         android:layout_margin="8dp"
+                         android:layout_width="fill_parent"
+                         android:layout_height="wrap_content"
+                         android:id="@+id/cv_organ_phone"
+                         android:textColor="#fd4949"
+                         android:textSize="11sp"
+                         android:text="18378307553"/>
+                     <View style="@style/line_h"/>
+                <TextView
+                    style="@style/text_normal"
+                    android:paddingLeft="@dimen/dimen_10"
+                    android:text="活动简介"
+                    android:textSize="15sp"
+                    android:textColor="#000000"/>
+
+                <TextView
+                    android:id="@+id/tv_exercise"
+                    style="@style/text_normal"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/dimen_10"/>
+                 </LinearLayout>
+               <!-- <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_marginTop="50dp"
+                        android:layout_width="fill_parent"
+                        android:background="#ffffff"
+                        android:layout_height="100dp" />
+                        <TextView
+                            android:background="@mipmap/duoyuan"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/tv_sign"
+                            style="@style/text_small"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="报名"
+                            android:textSize="14sp"
+                            android:textColor="@color/white"/>
+                </RelativeLayout>-->
+            </LinearLayout>
+        </ScrollView>
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_marginTop="30dp"
+                    android:layout_width="fill_parent"
+                    android:background="@color/white"
+                    android:layout_height="match_parent" />
+            <TextView
+                android:background="@mipmap/duoyuan"
+                android:layout_alignParentBottom="true"
+                android:layout_centerInParent="true"
+                android:id="@+id/tv_sign"
+                style="@style/text_small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="报名"
+                android:textSize="14sp"
+                android:textColor="@color/white"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

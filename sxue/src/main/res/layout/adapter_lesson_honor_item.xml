@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable name="viewModel" type="com.edu.sxue.module.lesson.viewmodel.LessonHonorItemViewModel"/>
+    </data>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_marginLeft="@dimen/dimen_20"
+        android:layout_marginRight="@dimen/dimen_20"
+        android:layout_marginTop="@dimen/dimen_10"
+        app:uri="@{viewModel.uri}"
+        app:placeholderImageRes="@{R.mipmap.honor}"/>
+</layout>

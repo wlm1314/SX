@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.user.updatepwd.viewmodel.UpdatePwdViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_20">
+
+            <TextView
+                android:drawableLeft="@mipmap/lock"
+                style="@style/text_normal"
+                android:textSize="15sp"
+                android:textColor="#888888"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""/>
+
+            <EditText
+                android:id="@+id/et_oldpwd"
+                style="@style/edit_normal"
+                android:textSize="15sp"
+                android:textColor="#888888"
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:hint="旧密码"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/dimen_10"
+                android:text="@={viewModel.oldPwd}"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_h"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_20"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_20">
+
+            <TextView
+                style="@style/text_normal"
+                android:textSize="15sp"
+                android:textColor="#888888"
+                android:drawableLeft="@mipmap/lock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""/>
+
+            <EditText
+                android:id="@+id/et_newpwd"
+                style="@style/edit_normal"
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:hint="新密码"
+                android:textSize="15sp"
+                android:textColor="#888888"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/dimen_10"
+                android:text="@={viewModel.newPwd}"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_h"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_20"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_20">
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/text_normal"
+                android:drawableLeft="@mipmap/lock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:textColor="#888888"
+                android:text=""/>
+
+            <EditText
+                android:id="@+id/et_repwd"
+                style="@style/edit_normal"
+                android:layout_width="match_parent"
+                android:background="@null"
+                android:hint="再次输入"
+                android:textSize="15sp"
+                android:textColor="#888888"
+                android:inputType="textPassword"
+                android:paddingLeft="@dimen/dimen_10"
+                android:text="@={viewModel.confirmPwd}"/>
+        </LinearLayout>
+
+        <View
+            style="@style/line_h"
+            android:layout_marginLeft="@dimen/dimen_20"
+            android:layout_marginRight="@dimen/dimen_20"/>
+        <TextView
+            android:layout_marginTop="32dp"
+            app:clickCommand="@{viewModel.changePwd}"
+            style="@style/text_bigger"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="@dimen/dimen_30"
+            android:layout_marginRight="@dimen/dimen_30"
+            android:background="@drawable/bt_login"
+            android:gravity="center"
+            android:text="确定"
+            android:textSize="18sp"
+            android:textColor="@color/white"/>
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_xyi"
+                android:layout_width="fill_parent"
+                android:text="双创服务条款及使用协议"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:textColor="#0086ff"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_below="@+id/tv_xyi"
+                android:layout_width="fill_parent"
+                android:text="北京正德双创有限公司版权所有"
+                android:gravity="center"
+                android:textSize="11sp"
+                android:layout_marginTop="15dp"
+                android:layout_alignParentBottom="true"
+                android:textColor="#000000"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

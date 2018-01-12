@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">尚学</string>
+    <string name="bottom_lesson">课程</string>
+    <string name="bottom_organ">机构</string>
+    <string name="bootom_exercise">活动</string>
+    <string name="bottom_my">我</string>
+    <string name="bottom_class">上课</string>
+    <string name="lesson_name">课程名: %1$s</string>
+    <string name="organ_name">机构名: %1$s</string>
+    <string name="time_length">%1$s分钟</string>
+    <string name="price_once">%1$s元/次</string>
+    <string name="listen_time">试听时间: %1$s</string>
+    <string name="range_time">%1$s 到 %2$s</string>
+    <string name="address">上课地点: %1$s</string>
+    <string name="price">%1$s元</string>
+    <string name="title_activity_orgen_des">OrgenDesActivity</string>
+</resources>

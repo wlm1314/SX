@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
+        <import type="com.edu.sxue.R"/>
+        <variable name="viewModel" type="com.edu.sxue.module.organ.viewmodel.OrganHyzzViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:background="@drawable/rect_radius_white"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_normal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/dimen_6"
+                android:layout_marginTop="@dimen/dimen_12"
+                android:gravity="center"
+                android:text="行业资质" />
+
+            <View
+                style="@style/line_h"
+                android:layout_marginBottom="@dimen/dimen_12"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_hyzz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/app_bg"
+                app:layoutManager="@{LayoutManagers.linear()}" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

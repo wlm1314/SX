@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.user.schedule.viewmodel.ScheduleItemViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bt_kecheng"
+        android:orientation="vertical"
+        app:clickCommand="@{viewModel.itemCommand}">
+        <TextView
+            style="@style/text_sub"
+            android:drawablePadding="@dimen/dimen_10"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingTop="@dimen/dimen_10"
+            android:textSize="@dimen/text_size_15"
+            android:textColor="#000000"
+            android:text="@{viewModel.cour_name}" />
+        <TextView
+            style="@style/text_sub"
+            android:drawableLeft="@mipmap/jigou"
+            android:drawablePadding="@dimen/dimen_10"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingTop="@dimen/dimen_10"
+            android:textSize="@dimen/text_size_13"
+            android:textColor="#666666"
+            android:text="@{viewModel.inst_name}"/>
+        <TextView
+            style="@style/text_sub"
+            android:drawableLeft="@mipmap/time"
+            android:drawablePadding="@dimen/dimen_10"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingTop="@dimen/dimen_10"
+            android:text="@{viewModel.time}"
+            android:textSize="@dimen/text_size_13"
+            tools:text="2017.03.24 18:00"/>
+
+
+        <TextView
+            style="@style/text_sub"
+            android:gravity="center"
+            android:drawablePadding="@dimen/dimen_10"
+            android:drawableLeft="@mipmap/didian"
+            android:paddingBottom="@dimen/dimen_10"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingTop="@dimen/dimen_10"
+            android:text="@{viewModel.address}"
+            tools:text="地下一层 39号教室"/>
+    </LinearLayout>
+</layout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/rl_item_month_select"
+    android:background="@drawable/circle_item_gv_select_month_normal"
+    >
+
+    <TextView
+        android:id="@+id/tv_item_select_month_dialog"
+        android:layout_centerInParent="true"
+        android:layout_width="168dp"
+        android:gravity="center"
+        android:layout_height="22dp"
+        android:textColor="#593442"
+        android:textSize="12sp"
+        android:text="1"/>
+
+    <!--<com.cenktech.smartbabyleader.ui.home.MyView-->
+        <!--android:layout_width="68dp"-->
+        <!--android:layout_height="22dp"-->
+        <!--android:foregroundGravity="center"-->
+        <!--/>-->
+</RelativeLayout>

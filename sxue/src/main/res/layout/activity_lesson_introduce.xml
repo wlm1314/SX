@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable name="viewModel"
+                  type="com.edu.sxue.module.lesson.viewmodel.LessonIntroduceViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="match_parent"
+                      android:layout_marginBottom="@dimen/dimen_20"
+                      android:layout_marginLeft="@dimen/dimen_7"
+                      android:layout_marginRight="@dimen/dimen_7"
+                      android:layout_marginTop="@dimen/dimen_10"
+                      android:background="@drawable/rect_radius_white"
+                      android:orientation="vertical">
+            <TextView
+                style="@style/text_normal"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:paddingBottom="6dp"
+                android:paddingTop="12dp"
+                android:text="课程介绍"
+                android:textSize="15sp"/>
+
+            <View
+                style="@style/line_h"
+                android:layout_marginLeft="@dimen/dimen_12"
+                android:layout_marginRight="@dimen/dimen_12"/>
+
+            <TextView
+                style="@style/text_small"
+                android:layout_marginLeft="@dimen/dimen_12"
+                android:layout_marginTop="@dimen/dimen_6"
+                android:drawableLeft="@mipmap/jigou"
+                android:drawablePadding="@dimen/dimen_5"
+                android:text="@{viewModel.name}"
+                android:textColor="#3f3d3d"/>
+
+            <ScrollView android:layout_width="match_parent"
+                        android:layout_marginLeft="@dimen/dimen_12"
+                        android:layout_marginRight="@dimen/dimen_12"
+                        android:layout_marginTop="@dimen/dimen_10"
+                        android:layout_height="match_parent">
+                <TextView
+                    style="@style/text_small"
+                    android:text="@{viewModel.des}"
+                    android:textColor="#666666"
+                    android:textSize="11sp"/>
+            </ScrollView>
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

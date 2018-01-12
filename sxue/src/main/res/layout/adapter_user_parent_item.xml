@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.user.parent.viewmodel.ParentItemViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:paddingTop="@dimen/dimen_15"
+        android:paddingBottom="@dimen/dimen_10"
+        android:paddingRight="@dimen/dimen_15"
+        android:paddingLeft="@dimen/dimen_15">
+
+        <ImageView
+            android:layout_width="@dimen/dimen_100"
+            android:layout_height="@dimen/dimen_55"
+            app:placeholderImageRes="@{R.mipmap.teacher_adavar}"
+            app:uri="@{viewModel.img}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_bigger"
+                android:paddingLeft="@dimen/dimen_15"
+                android:text="@{viewModel.name}"
+                android:textSize="@dimen/text_size_15"
+                tools:text="美术创意设计课"/>
+
+            <TextView
+                style="@style/text_sub"
+                android:textColor="#666666"
+                android:paddingLeft="@dimen/dimen_15"
+                android:paddingTop="@dimen/dimen_5"
+                android:text="@{viewModel.relation}"
+                android:textSize="@dimen/text_size_12"
+                tools:text="机构名：北京鑫美传媒"/>
+
+
+            <TextView
+                style="@style/text_sub"
+                android:layout_weight="1"
+                android:textColor="#fd4949"
+                android:drawableLeft="@mipmap/dianhua"
+                android:drawablePadding="@dimen/dimen_5"
+                android:paddingLeft="@dimen/dimen_15"
+                android:paddingTop="@dimen/dimen_5"
+                android:text="@{viewModel.phone}"
+                android:textSize="@dimen/text_size_13"
+                tools:text="45分钟"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

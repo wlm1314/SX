@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.edu.sxue.R" />
+
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.organ.viewmodel.OrganDesViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="0.5dp"
+            android:layout_marginRight="0.5dp"
+            android:layout_marginTop="@dimen/dimen_10"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/rect_radius_white"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                   style="@style/text_normal"
+                    android:layout_marginBottom="6dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center"
+                    android:text="机构介绍"
+                    android:textSize="15sp" />
+
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_12"
+                    android:layout_marginRight="@dimen/dimen_12" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/dimen_60"
+                            android:layout_marginLeft="@dimen/dimen_12"
+                            android:layout_marginRight="@dimen/dimen_12"
+                            android:layout_marginTop="10dp"
+                            android:text="@{viewModel.des}"
+                            android:padding="5dp"/>
+
+                        <View
+                            style="@style/line_h"
+                            android:layout_marginLeft="@dimen/dimen_12"
+                            android:layout_marginRight="@dimen/dimen_12" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/textView2"
+                                style="@style/text_normal"
+                                android:layout_marginLeft="32dp"
+                                android:layout_marginRight="32dp"
+                                android:layout_marginTop="18dp"
+                                android:textSize="15sp"
+                                android:text="联系方式" />
+
+                            <TextView
+                                android:text="@{viewModel.address}"
+                                style="@style/text_small"
+                                android:layout_marginLeft="@dimen/dimen_15"
+                                android:layout_marginRight="@dimen/dimen_15"
+                                android:layout_marginTop="10dp"
+                                android:drawableLeft="@mipmap/didian"
+                                android:drawablePadding="5dp"
+                                android:textColor="#666666"
+                                android:textSize="13sp"
+                                tools:text="北京雅酷儿童世界地下35号" />
+
+                            <TextView
+                                android:text="@{viewModel.website}"
+                                style="@style/text_small"
+                                android:layout_marginLeft="@dimen/dimen_15"
+                                android:layout_marginRight="@dimen/dimen_15"
+                                android:layout_marginTop="10dp"
+                                android:drawableLeft="@mipmap/web"
+                                android:drawablePadding="5dp"
+                                android:textColor="#666666"
+                                android:textSize="13sp"
+                                tools:text="www.baidu.com" />
+
+                            <TextView
+                                android:text="@{viewModel.name}"
+                                style="@style/text_small"
+                                android:layout_marginLeft="@dimen/dimen_15"
+                                android:layout_marginRight="@dimen/dimen_15"
+                                android:layout_marginTop="10dp"
+                                android:drawableLeft="@mipmap/renwu"
+                                android:drawablePadding="5dp"
+                                android:textColor="#666666"
+                                android:textSize="13sp"
+                                tools:text="张三" />
+
+                            <TextView
+                                android:text="@{viewModel.phone}"
+                                style="@style/text_small"
+                                android:layout_marginLeft="@dimen/dimen_15"
+                                android:layout_marginRight="@dimen/dimen_15"
+                                android:layout_marginTop="10dp"
+                                android:drawableLeft="@mipmap/dianhua"
+                                android:drawablePadding="5dp"
+                                android:textColor="#fd4949"
+                                android:textSize="13sp"
+                                tools:text="18383783520" />
+
+                        </LinearLayout>
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

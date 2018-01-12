@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.user.vip.viewmedel.VipViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@mipmap/background_pic"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dimen_15"
+                android:text="会员卡余额 (元)"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_13"
+                />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/dimen_25"
+                    android:layout_marginLeft="@dimen/dimen_15"
+                    android:layout_marginTop="@dimen/dimen_20"
+                    tools:text="0"
+                    android:text="@{viewModel.balance}"
+                    android:textColor="@color/white"
+                    android:textSize="50sp"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+        <View
+            android:layout_marginBottom="3dp"
+            android:background="#f6f6f6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <TextView
+            android:gravity="center"
+            android:drawablePadding="10dp"
+            android:drawableLeft="@mipmap/xiaofeimixi"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="3dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:text="消费明细"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_marginBottom="3dp"
+            android:background="#f6f6f6"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"/>
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_consume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="@{LayoutManagers.linear()}"/>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    </LinearLayout>
+</layout>

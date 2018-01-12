@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.user.login.viewmodel.LoginViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/login_bg"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="fitXY"
+                android:src="@mipmap/background_pic"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/iv_adavar"
+                android:layout_width="95dp"
+                android:layout_height="95dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/dimen_50"
+                app:placeholderImageRes="@{R.mipmap.adavar}"
+                app:uri="@{viewModel.pic}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_below="@id/iv_adavar"
+                android:layout_marginBottom="16dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/rect_radius_white"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/et_username"
+                    style="@style/edit_normal"
+                    android:layout_width="match_parent"
+                    android:layout_marginLeft="@dimen/dimen_25"
+                    android:layout_marginRight="@dimen/dimen_25"
+                    android:layout_marginTop="@dimen/dimen_50"
+                    android:drawableLeft="@mipmap/pic_input"
+                    android:drawablePadding="@dimen/dimen_15"
+                    android:hint="请输入会员号"
+                    android:text="@={viewModel.account}"
+                    android:textSize="@dimen/text_size_15"/>
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_25"
+                    android:layout_marginRight="@dimen/dimen_25"/>
+
+                <LinearLayout android:layout_width="match_parent"
+                              android:layout_height="wrap_content"
+                              android:layout_marginLeft="@dimen/dimen_25"
+                              android:layout_marginRight="@dimen/dimen_25"
+                              android:layout_marginTop="@dimen/dimen_50"
+                              android:gravity="center_vertical">
+                    <EditText
+                        android:id="@+id/et_userpass"
+                        style="@style/edit_normal"
+                        android:layout_weight="1"
+                        android:drawableLeft="@mipmap/pic_passwrod"
+                        android:drawablePadding="@dimen/dimen_15"
+                        android:hint="请输入密码"
+                        android:inputType="textPassword"
+                        android:text="@={viewModel.password}"
+                        android:textSize="@dimen/text_size_15"/>
+
+                    <ImageView android:id="@+id/iv_show_pwd"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               android:src="@mipmap/ic_eye"/>
+                </LinearLayout>
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_25"
+                    android:layout_marginRight="@dimen/dimen_25"/>
+
+                <TextView
+                    android:id="@+id/tv_forget"
+                    style="@style/text_normal"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/dimen_50"
+                    android:layout_marginTop="@dimen/dimen_25"
+                    android:text="忘记密码?"
+                    android:textColor="@color/text_hint"
+                    app:clickCommand="@{viewModel.settingCommand}"/>
+
+
+                <TextView
+                    android:id="@+id/bt_button"
+                    style="@style/text_bigger"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="@dimen/dimen_30"
+                    android:layout_marginRight="@dimen/dimen_30"
+                    android:layout_marginTop="@dimen/dimen_100"
+                    android:background="@drawable/bt_login"
+                    android:gravity="center"
+                    android:text="登录"
+                    android:textColor="@color/white"
+                    app:clickCommand="@{viewModel.loginCommand}"/>
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

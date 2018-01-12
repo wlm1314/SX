@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.user.profile.viewmodel.UserProfileViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dimen_75">
+
+                    <TextView
+                        style="@style/text_bigger"
+                        android:textColor="#666666"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="@dimen/dimen_25"
+                        android:text="修改头像"/>
+
+                    <ImageView
+                        android:id="@+id/iv_right"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimen_15"
+                        android:src="@mipmap/ic_arrow_right"
+                    />
+
+                    <ImageView
+                        android:id="@+id/iv_adavar"
+                        android:layout_width="@dimen/dimen_50"
+                        android:layout_height="@dimen/dimen_50"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/dimen_10"
+                        android:layout_toLeftOf="@id/iv_right"
+                        app:uri="@{viewModel.imgUrl}"
+                        app:placeholderImageRes="@{R.mipmap.adavar}"/>
+
+
+                </RelativeLayout>
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+
+                <base.lib.widget.CellView
+                    android:id="@+id/cv_nick"
+                    style="@style/cell_edit_right"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_15"
+                    app:iconLeft="@null"
+                    app:iconRight="@mipmap/ic_arrow_right"
+                    app:labelColor="#666666"
+                    app:labelText="昵称"/>
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+
+                <base.lib.widget.CellView
+                    android:id="@+id/cv_sex"
+                    style="@style/cell_text_right"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_15"
+                    app:iconLeft="@null"
+                    app:iconRight="@mipmap/ic_arrow_right"
+                    app:labelColor="#666666"
+                    app:labelText="性别"/>
+
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+
+                <base.lib.widget.CellView
+                    android:id="@+id/cv_birthday"
+                    style="@style/cell_text_right"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_15"
+                    app:iconLeft="@null"
+                    app:iconRight="@mipmap/ic_arrow_right"
+                    app:labelColor="#666666"
+                    app:labelText="生日"/>
+
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+
+                <base.lib.widget.CellView
+                    android:id="@+id/cv_height"
+                    style="@style/cell_edit_right"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_15"
+                    app:iconLeft="@null"
+                    app:iconRight="@mipmap/ic_arrow_right"
+                    app:labelColor="#666666"
+                    app:labelText="身高"/>
+
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+
+                <base.lib.widget.CellView
+                    android:id="@+id/cv_weight"
+                    style="@style/cell_edit_right"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_15"
+                    app:iconLeft="@null"
+                    app:iconRight="@mipmap/ic_arrow_right"
+                    app:labelColor="#666666"
+                    app:labelText="体重"/>
+
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+
+                <base.lib.widget.CellView
+                    android:id="@+id/cv_address"
+                    style="@style/cell_text_right"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_15"
+                    app:iconLeft="@null"
+                    app:iconRight="@mipmap/ic_arrow_right"
+                    app:labelColor="#666666"
+                    app:labelText="地区"/>
+
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+
+                <base.lib.widget.CellView
+                    android:id="@+id/cv_phone"
+                    style="@style/cell_edit_right"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_15"
+                    app:iconLeft="@null"
+                    app:iconRight="@mipmap/ic_arrow_right"
+                    app:labelColor="#666666"
+                    app:labelText="联系电话"/>
+
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+
+                <base.lib.widget.CellView
+                    android:id="@+id/cv_school"
+                    style="@style/cell_edit_right"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingRight="@dimen/dimen_15"
+                    app:iconLeft="@null"
+                    app:iconRight="@mipmap/ic_arrow_right"
+                    app:labelColor="#666666"
+                    app:labelText="所在学校/毕业院校"/>
+
+                <View
+                    style="@style/line_h"
+                    android:layout_marginLeft="@dimen/dimen_20"
+                    android:layout_marginRight="@dimen/dimen_20"/>
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+</layout>

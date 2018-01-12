@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.user.signorder.viewmodel.SignItemViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dimen_10"
+        android:paddingLeft="@dimen/dimen_15"
+        android:paddingRight="@dimen/dimen_15"
+        android:paddingTop="@dimen/dimen_15"
+        app:clickCommand="@{viewModel.itemCommand}">
+
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="@dimen/dimen_100"
+            app:placeholderImageRes="@{R.mipmap.lesson_placeholder}"
+            app:uri="@{viewModel.pic}"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_bigger"
+                android:paddingLeft="@dimen/dimen_15"
+                android:text="@{viewModel.cour_name}"
+                android:textSize="@dimen/text_size_17"
+                tools:text="美术创意设计课"/>
+
+            <TextView
+                android:drawableLeft="@mipmap/jigou"
+                android:drawablePadding="10dp"
+                style="@style/text_sub"
+                android:paddingLeft="@dimen/dimen_15"
+                android:paddingTop="@dimen/dimen_5"
+                android:text="@{viewModel.inst_name}"
+                android:textSize="@dimen/text_size_13"
+                tools:text="机构名：北京鑫美传媒"/>
+
+
+            <TextView
+                style="@style/text_sub"
+                android:drawableLeft="@mipmap/time"
+                android:drawablePadding="@dimen/dimen_10"
+                android:paddingLeft="@dimen/dimen_15"
+                android:paddingTop="@dimen/dimen_5"
+                android:text="@{viewModel.start_time}"
+                android:textSize="@dimen/text_size_11"
+                tools:text="45分钟"/>
+
+            <TextView
+                android:drawablePadding="10dp"
+                android:drawableLeft="@mipmap/didian"
+                style="@style/text_sub"
+                android:paddingLeft="@dimen/dimen_15"
+                android:paddingTop="@dimen/dimen_5"
+                android:text="@{viewModel.room_number}"
+                android:textSize="@dimen/text_size_11"/>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

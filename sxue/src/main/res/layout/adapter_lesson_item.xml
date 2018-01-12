@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.lesson.viewmodel.LessonItemViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_bg"
+        android:orientation="vertical"
+        app:clickCommand="@{viewModel.itemCommand}">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/rect_radius_white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                app:placeholderImageRes="@{R.mipmap.lesson_placeholder}"
+                app:uri="@{viewModel.pic}"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="23dp">
+
+                <TextView
+                    style="@style/text_bigger"
+                    android:text="@{viewModel.name}"
+                    android:textSize="@dimen/text_size_15"
+                    tools:text="美术创意设计课"/>
+
+                <TextView
+                    style="@style/text_sub"
+                    android:drawableLeft="@mipmap/jigou"
+                    android:drawablePadding="5dp"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:text="@{viewModel.institution_name}"
+                    android:textSize="@dimen/text_size_13"
+                    tools:text="北京鑫美传媒"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        style="@style/text_sub"
+                        android:layout_weight="1"
+                        android:drawableLeft="@mipmap/time"
+                        android:drawablePadding="@dimen/dimen_5"
+                        android:paddingTop="@dimen/dimen_5"
+                        android:text="@{viewModel.course_time}"
+                        android:textSize="@dimen/text_size_11"
+                        tools:text="45分钟"/>
+
+                    <!-- <TextView
+                         style="@style/text_org"
+                         android:drawablePadding="@dimen/dimen_5"
+                         android:paddingTop="@dimen/dimen_5"
+                         android:text="@{viewModel.single_time_price}"
+                         android:textSize="@dimen/text_size_13"
+                         tools:text="199元/次"/>-->
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:paddingBottom="@dimen/dimen_10"
+            android:paddingRight="@dimen/dimen_15"
+            android:paddingTop="@dimen/dimen_10">
+
+            <TextView
+                style="@style/text_small"
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+                android:background="@drawable/rect_radius_bg_gray"
+                android:gravity="center"
+                android:text="报名视听"
+                android:textColor="@color/text_normal"
+                app:clickCommand="@{viewModel.signCommand}"/>
+
+            <TextView
+                style="@style/text_small"
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:background="@drawable/rect_radius_border_gray"
+                android:gravity="center"
+                android:text="视频"
+                android:visibility="gone"
+                android:textColor="@color/blue"
+                app:clickCommand="@{viewModel.videoCommand}"/>
+
+        </LinearLayout>-->
+
+    </LinearLayout>
+</layout>

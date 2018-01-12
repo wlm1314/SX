@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.edu.sxue">
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".app.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppBaseTheme">
+        <activity
+            android:name=".module.home.view.SplashActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".module.user.login.view.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.home.view.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.resetpwd.view.ResetPwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.settings.view.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.vip.view.VipActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.profile.view.UserProfileActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".module.video.view.VideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize" />
+        <activity
+            android:name=".module.lesson.view.info.LessonInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.organ.view.info.OrganInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.signorder.view.SignOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.order.view.UserOrderActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.schedule.view.UserScheduleActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.exercise.view.ExerciseInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.exercise.view.UserExerciseActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.parent.view.UserParentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.user.updatepwd.view.UpdatePwdActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.lesson.view.info.LessonIntroduceActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.lesson.view.info.LessonPackageActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.lesson.view.info.LessonPowerActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.organ.view.info.OrganDesActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".module.organ.view.info.OrganLessonsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".module.lesson.view.info.LessonHonorActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.organ.view.info.OrganEnvironmentActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.organ.view.info.OrganHyzzActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".module.organ.view.info.OrganTeacherActivity"
+            android:screenOrientation="portrait" />
+    </application>
+
+</manifest>

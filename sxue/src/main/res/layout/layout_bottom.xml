@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="viewModel"
+            type="com.edu.sxue.module.home.viewmodel.HomeViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View style="@style/line_h"/>
+
+        <RadioGroup
+            android:id="@+id/group_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <RadioButton
+                style="@style/group_bottom_rbtn"
+                android:checked="@{viewModel.check_index==0?true:false}"
+                android:drawableTop="@drawable/bottom_lesson_selector"
+                android:text="@string/bottom_lesson"
+                app:clickCommand="@{viewModel.lessonCommand}"/>
+
+            <RadioButton
+                style="@style/group_bottom_rbtn"
+                android:drawableTop="@drawable/bottom_organ_selector"
+                android:text="@string/bottom_organ"
+                app:clickCommand="@{viewModel.organCommand}"/>
+            <RadioButton
+                style="@style/group_bottom_rbtn"
+                android:drawableTop="@drawable/bottom_class_selector"
+                android:text="上课"
+                app:clickCommand="@{viewModel.classCommand}"/>
+
+            <RadioButton
+                style="@style/group_bottom_rbtn"
+                android:drawableTop="@drawable/bottom_exercise_selector"
+                android:text="@string/bootom_exercise"
+                app:clickCommand="@{viewModel.exerciseCommand}"/>
+
+            <RadioButton
+                style="@style/group_bottom_rbtn"
+                android:drawableTop="@drawable/bottom_my_selector"
+                android:text="@string/bottom_my"
+                app:clickCommand="@{viewModel.myCommand}"/>
+
+        </RadioGroup>
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.edu.sxue.R"/>
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
+        <variable name="viewModel"
+                  type="com.edu.sxue.module.lesson.viewmodel.LessonPackageViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/app_bg"
+        android:orientation="vertical">
+
+        <include
+            android:id="@+id/appbar"
+            layout="@layout/tool_bar_white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            style="@style/text_normal"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@color/white"
+            android:gravity="center"
+            android:text="课程包"
+            android:textSize="15sp"/>
+
+        <View style="@style/line_h"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_lesson_package"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layoutManager="@{LayoutManagers.linear()}"/>
+    </LinearLayout>
+</layout>
