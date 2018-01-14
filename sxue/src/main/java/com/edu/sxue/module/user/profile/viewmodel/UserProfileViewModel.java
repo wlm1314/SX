@@ -40,7 +40,7 @@ public class UserProfileViewModel implements IRxBusListener {
     private RequestApi mRequestApi;
     private RxBus mRxBus;
     private UserProfileBean mUserProfileBean;
-    public ObservableField<String> imgUrl = new ObservableField<>("");
+    public ObservableField<String> imgUrl = new ObservableField<>(PreferencesUtils.getString(Constants.sUser_pic, ""));
     private File tempFile;
 
     public UserProfileViewModel(RequestApi requestApi, RxBus rxBus) {
@@ -54,7 +54,7 @@ public class UserProfileViewModel implements IRxBusListener {
                     public void onNext(ArrayList<UserProfileBean> userProfileBeen) {
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
                         mUserProfileBean = userProfileBeen.get(0);
-                        imgUrl.set(mUserProfileBean.pic);
+                        imgUrl.set(HttpConsts.getServer() + "/smartmalls" + mUserProfileBean.pic);
                     }
                 });
     }

@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.bigkoo.pickerview.TimePickerView;
 import com.edu.sxue.R;
+import com.edu.sxue.api.HttpConsts;
 import com.edu.sxue.constant.Constants;
 import com.edu.sxue.databinding.ActivityUserdataBinding;
 import com.edu.sxue.injector.component.DaggerUserProfileComponent;
@@ -50,7 +51,7 @@ public class UserProfileActivity extends BaseActivity<ActivityUserdataBinding> i
     protected void initViews() {
         mAppBar.setRight("确定", () ->
                 mViewModel.updateUserProfile(PreferencesUtils.getString(Constants.sUser_userid, ""),
-                        mViewModel.imgUrl.get(),
+                        mViewModel.imgUrl.get().replace(HttpConsts.getServer() + "/smartmalls", ""),
                         mBinding.cvNick.getInfoText(),
                         mBinding.cvSex.getInfoText().equals("男") ? "1" : "2",
                         mBinding.cvBirthday.getInfoText(),

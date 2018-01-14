@@ -2,6 +2,7 @@ package com.edu.sxue.module.user.main.viewmodel;
 
 import android.databinding.ObservableField;
 
+import com.edu.sxue.api.HttpConsts;
 import com.edu.sxue.api.HttpParams;
 import com.edu.sxue.api.ProgressSubscriber;
 import com.edu.sxue.api.RequestApi;
@@ -47,11 +48,11 @@ public class UserViewModel implements IRxBusListener {
                     @Override
                     public void onNext(ArrayList<UserInfoBean> userInfoBean) {
                         mUserInfoBean = userInfoBean.get(0);
-                        pic.set(mUserInfoBean.pic);
+                        pic.set(HttpConsts.getServer() + "/smartmalls" + mUserInfoBean.pic);
                         name.set(mUserInfoBean.name);
                         PreferencesUtils.saveString(Constants.sUser_userid, mUserInfoBean.id);
                         PreferencesUtils.saveString(Constants.sUser_username, mUserInfoBean.name);
-                        PreferencesUtils.saveString(Constants.sUser_pic, mUserInfoBean.pic);
+                        PreferencesUtils.saveString(Constants.sUser_pic, HttpConsts.getServer() + "/smartmalls" + mUserInfoBean.pic);
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
                     }
 
