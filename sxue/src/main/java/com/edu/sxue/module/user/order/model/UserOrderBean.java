@@ -5,16 +5,22 @@ package com.edu.sxue.module.user.order.model;
  */
 
 public class UserOrderBean {
-    public String id;//	int
-    public String member_id;//	int	是	会员ID
-    public String course_id;//	int		课程名
-    public String institution_id;//	int		机构名
-    public String time;//	datetime		时长
-    public String inst_name;//	varchar		机构名
-    public String cour_name;//	varchar		课程名
-    public String pic;//	varchar		课程图片
-    public String member_name;//	varchar		会员名
-    public String used_times;//使用次数
-    public String total_degree;//未使用次数
+    /*"courseName":"犹太少儿STEAM教育",
+            "instName":"创智天地",
+            "pic":null,
+            "courseTime":180,
+            "address":"北京市",
+            "useNumber":"0",
+            "unUseNumber":"14",
+            "course_id":"247"*/
+
+    public String courseName;
+    public String instName;
+    public String pic;
+    public String courseTime;
+    public String address;
+    public String useNumber;
+    public String unUseNumber;
+    public String course_id;
 
 }

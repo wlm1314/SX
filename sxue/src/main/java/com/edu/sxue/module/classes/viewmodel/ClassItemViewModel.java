@@ -47,8 +47,7 @@ public class ClassItemViewModel {
         pic.set(bean.pic);
         course.set("课程名：" + (TextUtils.isEmpty(bean.course) ? "" : bean.course));
         institution_name.set(bean.institution);
-        String[] start = bean.start_time.split(" ");
-        start_end.set(bean.start_time + "-" + bean.end_time.replace(start[0], ""));
+        start_end.set(bean.start_time + "-" + bean.end_time);
         time.set(bean.time + " 分钟");
         member.set(bean.member);
         address.set(bean.room);

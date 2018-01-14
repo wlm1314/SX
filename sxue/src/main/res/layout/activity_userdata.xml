@@ -51,7 +51,7 @@
                         android:src="@mipmap/ic_arrow_right"
                     />
 
-                    <ImageView
+                    <de.hdodenhof.circleimageview.CircleImageView
                         android:id="@+id/iv_adavar"
                         android:layout_width="@dimen/dimen_50"
                         android:layout_height="@dimen/dimen_50"

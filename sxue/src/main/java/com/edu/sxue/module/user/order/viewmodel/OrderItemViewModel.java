@@ -1,7 +1,6 @@
 package com.edu.sxue.module.user.order.viewmodel;
 
 import android.databinding.ObservableField;
-import android.text.TextUtils;
 
 import com.edu.sxue.R;
 import com.edu.sxue.app.App;
@@ -22,11 +21,11 @@ public class OrderItemViewModel {
 
     public OrderItemViewModel(UserOrderBean bean) {
         this.pic.set(bean.pic);
-        this.cour_name.set(TextUtils.isEmpty(bean.cour_name) ? "" : bean.inst_name);
-        this.inst_name.set(TextUtils.isEmpty(bean.inst_name) ? "" : bean.inst_name);
-        this.time.set(App.getInstance().getResources().getString(R.string.time_length, TextUtils.isEmpty(bean.time) ? "" : bean.time));
-        this.used_times.set(TextUtils.isEmpty(bean.used_times) ? "0" +"次": bean.used_times+"次");
-        this.total_degree.set(TextUtils.isEmpty(bean.total_degree) ? "0"+"次" : bean.total_degree+"次");
+        this.cour_name.set(bean.courseName);
+        this.inst_name.set(bean.instName);
+        this.time.set(App.getInstance().getResources().getString(R.string.time_length, bean.courseTime));
+        this.used_times.set(bean.useNumber + "次");
+        this.total_degree.set(bean.unUseNumber + "次");
     }
 
     public ReplyCommand itemCommand = new ReplyCommand(() -> {

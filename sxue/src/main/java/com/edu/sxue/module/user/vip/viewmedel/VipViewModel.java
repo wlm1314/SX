@@ -28,7 +28,7 @@ import rx.functions.Action1;
  * Administrator 在 2017/6/8 0008 创建了它
  */
 
-public class VipViewModel  implements IRxBusListener {
+public class VipViewModel implements IRxBusListener {
     public ObservableField<String> balance = new ObservableField<>("");
     private RequestApi mRequestApi;
     private RxBus mRxBus;
@@ -46,7 +46,7 @@ public class VipViewModel  implements IRxBusListener {
         return mAdapter;
     }
 
-    private void getData(){
+    private void getData() {
         mRequestApi.getBalance(HttpParams.getMemberIdParam(PreferencesUtils.getString(Constants.sUser_userid, "")))
                 .compose(RetrofitService.applySchedulers())
                 .map(new RetrofitService.HttpResultFunc<>())
@@ -54,28 +54,29 @@ public class VipViewModel  implements IRxBusListener {
                     @Override
                     public void onNext(VipCardBean vipCardBeen) {
                         VipCardBean bean = vipCardBeen;
-                        if(TextUtils.isEmpty(bean.balance)){
+                        if (TextUtils.isEmpty(bean.balance)) {
                             balance.set("0");
-                        }else{
+                        } else {
                             balance.set(bean.balance);
                         }
                     }
                 });
     }
 
-    public void getConseme(){
-        mRequestApi.getConsume(HttpParams.getMemberIdParam(PreferencesUtils.getString(Constants.sUser_userid, "")))
+    public void getConseme(int page) {
+        mRequestApi.getConsume(HttpParams.getPageMemberParam(PreferencesUtils.getString(Constants.sUser_userid, ""), page + ""))
                 .compose(RetrofitService.applySchedulers())
                 .subscribe(new ProgressSubscriber<HttpResult<ArrayList<ConsumeBean>>>() {
                     @Override
                     public void onNext(HttpResult<ArrayList<ConsumeBean>> httpResult) {
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
+                        if (page == 1)
                             datas.clear();
                         for (ConsumeBean bean : httpResult.getData()) {
                             datas.add(new ConsumeItemViewModel(bean));
                         }
                         mAdapter.loadMoreComplete();
-                        mAdapter.setEnableLoadMore(false);
+                        mAdapter.setEnableLoadMore(httpResult.getData().size() < 10);
                         mAdapter.notifyDataSetChanged();
                     }
 

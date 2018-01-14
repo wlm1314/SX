@@ -4,7 +4,9 @@
         xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="com.edu.sxue.R"/>
+
         <variable
             name="viewModel"
             type="com.edu.sxue.module.user.signorder.viewmodel.SignItemViewModel"/>
@@ -40,9 +42,9 @@
                 tools:text="美术创意设计课"/>
 
             <TextView
+                style="@style/text_sub"
                 android:drawableLeft="@mipmap/jigou"
                 android:drawablePadding="10dp"
-                style="@style/text_sub"
                 android:paddingLeft="@dimen/dimen_15"
                 android:paddingTop="@dimen/dimen_5"
                 android:text="@{viewModel.inst_name}"
@@ -61,13 +63,14 @@
                 tools:text="45分钟"/>
 
             <TextView
-                android:drawablePadding="10dp"
-                android:drawableLeft="@mipmap/didian"
                 style="@style/text_sub"
+                android:drawableLeft="@mipmap/didian"
+                android:drawablePadding="10dp"
                 android:paddingLeft="@dimen/dimen_15"
                 android:paddingTop="@dimen/dimen_5"
                 android:text="@{viewModel.room_number}"
-                android:textSize="@dimen/text_size_11"/>
+                android:textSize="@dimen/text_size_11"
+                android:visibility="gone"/>
 
         </LinearLayout>
     </LinearLayout>

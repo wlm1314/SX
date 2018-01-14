@@ -10,13 +10,10 @@ import com.edu.sxue.injector.component.DaggerExerciseListComponent;
 import com.edu.sxue.module.base.BaseFragment;
 import com.edu.sxue.module.exercise.viewmodel.ExerciseViewModel;
 import com.edu.sxue.rxbus.event.CommonEvent;
-import com.edu.sxue.widget.EmptyLayout;
 
 import javax.inject.Inject;
 
 import base.lib.widget.recyclerview.DividerLinearItemDecoration;
-
-import static com.edu.sxue.widget.EmptyLayout.STATUS_NO_DATA;
 
 /**
  * Administrator 在 2017/6/4 创建了它.
@@ -51,6 +48,7 @@ public class ExerciseListFragment extends BaseFragment<FragmentExerciseListBindi
         keyword = getArguments().getString("keyword");
         mBinding.setViewModel(mViewModel);
         mBinding.rvCommon.addItemDecoration(new DividerLinearItemDecoration(getActivity(), DividerLinearItemDecoration.VERTICAL_LIST, (int) getResources().getDimension(R.dimen.dimen_10), getResources().getColor(R.color.app_bg)));
+        mViewModel.getAdapter().addHeaderView(LayoutInflater.from(getActivity()).inflate(R.layout.layout_diver, null));
         mBinding.rvCommon.setAdapter(mViewModel.getAdapter());
         setListener();
         mViewModel.getData(keyword, page++);

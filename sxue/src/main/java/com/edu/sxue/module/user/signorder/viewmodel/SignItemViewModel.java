@@ -18,11 +18,11 @@ public class SignItemViewModel {
     public ObservableField<String> room_number = new ObservableField<>();
     public SignItemViewModel(SignOrderBean bean) {
         this.pic.set(bean.pic);
-        this.cour_name.set(TextUtils.isEmpty(bean.cour_name) ? "课程名:" : "课程名:"+bean.cour_name);
-        this.inst_name.set(TextUtils.isEmpty(bean.inst_name) ? "" : bean.inst_name);
+        this.cour_name.set(TextUtils.isEmpty(bean.courseName) ? "课程名:" : "课程名:"+bean.courseName);
+        this.inst_name.set(TextUtils.isEmpty(bean.instName) ? "" : bean.instName);
 //        this.time.set(App.getInstance().getResources().getString(R.string.time_length, TextUtils.isEmpty(bean.time) ? "" : bean.time));
-        this.start_time.set(TextUtils.isEmpty(bean.start_time) ? "" : bean.start_time);
-        this.room_number.set(TextUtils.isEmpty(bean.room_number) ? "" : bean.room_number);
+        this.start_time.set(TextUtils.isEmpty(bean.time) ? "" : bean.time);
+//        this.room_number.set(TextUtils.isEmpty(bean.room_number) ? "" : bean.room_number);
     }
 
     public ReplyCommand itemCommand = new ReplyCommand(() -> {

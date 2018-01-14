@@ -13,7 +13,7 @@ public class HttpPath {
     public static final String sign_order = "smartmalls/appParents/Index/app_member_course_api";//预约报名
     public static final String user_order = "smartmalls/appParents/Index/app_order_course_api";//我的订购
     public static final String user_lesson = "smartmalls/appParents/Index/app_reserve_api";//我的课程
-    public static final String exercise_index = "smartmalls/appParents/Activity/app_activity_api";//活动首页
+    public static final String exercise_index = "smartmalls/appParents/Activity/getAllActivity";//活动首页
     public static final String exercise_info = "smartmalls/appParents/Activity/app_activity_view_api";//活动详情
     public static final String exercise_sign = "smartmalls/appParents/Activity/app_activity_reserve_api";//活动报名
     public static final String user_exercise = "smartmalls/appParents/Index/app_activity";//我的活动
@@ -25,7 +25,7 @@ public class HttpPath {
     public static final String user_balance = "smartmalls/appParents/Card/app_member_balance";//会员卡余额
     public static final String user_pwd_update = "smartmalls/appParents/Count/update_password";//修改密码
     public static final String app_update = "smartmalls/appParents/Count/app_update";//初始密码修改
-    public static final String app_consume = "smartmalls/appParents/consume/app_consume_view_api";//消费明细
+    public static final String app_consume = "smartmalls/appParents/consume/consume_view_api";//消费明细
     public static final String organ_lesson = "smartmalls/appParents/inst/app_course_api";//机构课程
     public static final String phone_code = "smartmalls/AppParents/login/getForGetCode";//获取验证码
     public static final String course_content = "smartmalls/AppParents/course/course_content";//课程介绍

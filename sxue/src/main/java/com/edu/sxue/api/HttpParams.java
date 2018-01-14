@@ -208,4 +208,12 @@ public class HttpParams {
         map.put("end_time", end);
         return map;
     }
+
+    public static Map<String, String> getPageMemberParam(String member_id, String page){
+        Map<String, String> map = new HashMap<>();
+        map.put("member_id", member_id);
+        map.put("page", page);
+        map.put("pagesize", "10");
+        return map;
+    }
 }
