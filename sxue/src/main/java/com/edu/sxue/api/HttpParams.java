@@ -1,8 +1,12 @@
 package com.edu.sxue.api;
 
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 
 
 /**
@@ -40,6 +44,15 @@ public class HttpParams {
 
     public static Map<String, String> getLessonParam(String course_id, String institution_id, String member_id) {
         Map<String, String> map = new HashMap<>();
+        map.put("course_id", course_id);
+        map.put("institution_id", institution_id);
+        map.put("member_id", member_id);
+        return map;
+    }
+
+    public static Map<String, String> lessonTry(String course_id, String room_reserve_id, String institution_id, String member_id) {
+        Map<String, String> map = new HashMap<>();
+        map.put("room_reserve_id", room_reserve_id);
         map.put("course_id", course_id);
         map.put("institution_id", institution_id);
         map.put("member_id", member_id);
@@ -141,6 +154,15 @@ public class HttpParams {
         return map;
     }
 
+    public static Map<String, String> getLessonListParam(String id, String page, String courseId){
+        Map<String, String> map = new HashMap<>();
+        map.put("member_id", id);
+        map.put("page", page);
+        map.put("course_id", courseId);
+        map.put("pagesize", "10");
+        return map;
+    }
+
     public static Map<String, String> getCheckCode(String phone){
         Map<String, String> map = new HashMap<>();
         map.put("phone", phone);
@@ -161,6 +183,29 @@ public class HttpParams {
         map.put("keyword", keyword);
         map.put("pagesize", "10");
         map.put("time",time);
+        return map;
+    }
+
+    public static Map<String, RequestBody> uploadPic(String memberId, File uploadfile){
+        RequestBody member_id = RequestBody.create(MediaType.parse("text/plain"), memberId);
+        Map<String, RequestBody> map = new HashMap<>();
+        map.put("member_id", member_id);
+
+        if (uploadfile != null) {
+            RequestBody fileBody =
+                    RequestBody.create(MediaType.parse("multipart/form-data"), uploadfile);
+            map.put("uploadfile\"; filename=\""+uploadfile.getName()+"", fileBody);
+        }
+        return map;
+    }
+
+    public static Map<String, String> addReserve(String course_id, String institution_id, String member_id, String start, String end) {
+        Map<String, String> map = new HashMap<>();
+        map.put("course_id", course_id);
+        map.put("institution_id", institution_id);
+        map.put("member_id", member_id);
+        map.put("start_time", start);
+        map.put("end_time", end);
         return map;
     }
 }

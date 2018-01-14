@@ -10,13 +10,10 @@ import com.edu.sxue.module.base.AppBar;
 import com.edu.sxue.module.base.BaseActivity;
 import com.edu.sxue.module.user.signorder.viewmodel.SignOrderViewModel;
 import com.edu.sxue.rxbus.event.CommonEvent;
-import com.edu.sxue.widget.EmptyLayout;
 
 import javax.inject.Inject;
 
 import base.lib.widget.recyclerview.DividerLinearItemDecoration;
-
-import static com.edu.sxue.widget.EmptyLayout.STATUS_NO_DATA;
 
 /**
  * 王少岩 在 2017/7/19 创建了它
@@ -27,7 +24,6 @@ public class SignOrderActivity extends BaseActivity<ActivitySignOrderBinding> {
     AppBar mAppBar;
     @Inject
     SignOrderViewModel mViewModel;
-    private int page = 1;
     @Override
     protected int attachLayoutRes() {
         return R.layout.activity_sign_order;
@@ -46,7 +42,7 @@ public class SignOrderActivity extends BaseActivity<ActivitySignOrderBinding> {
         mBinding.rvCommon.addItemDecoration(new DividerLinearItemDecoration(this, DividerLinearItemDecoration.VERTICAL_LIST, (int) getResources().getDimension(R.dimen.dimen_10), getResources().getColor(R.color.app_bg)));
         mBinding.rvCommon.setAdapter(mViewModel.getAdapter());
         setListener();
-        mViewModel.getData(page++);
+        mViewModel.getData();
     }
 
     private void setListener() {
@@ -60,12 +56,11 @@ public class SignOrderActivity extends BaseActivity<ActivitySignOrderBinding> {
             }
         });
         mBinding.swipeLayout.setOnRefreshListener(() -> {
-            page = 1;
-            mViewModel.getData(page++);
+            mViewModel.getData();
         });
         View emptyLayout = LayoutInflater.from(this).inflate(R.layout.layout_empty, null);
         mViewModel.getAdapter().setEmptyView(emptyLayout);
-        mViewModel.getAdapter().setOnLoadMoreListener(() -> mViewModel.getData(page++), mBinding.rvCommon);
+//        mViewModel.getAdapter().setOnLoadMoreListener(() -> mViewModel.getData(page++), mBinding.rvCommon);
     }
 
     @Override

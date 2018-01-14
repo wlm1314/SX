@@ -35,7 +35,7 @@ public class UserViewModel implements IRxBusListener {
         mRequestApi = requestApi;
     }
 
-    public UserInfoBean getUserInfoBean(){
+    public UserInfoBean getUserInfoBean() {
         return mUserInfoBean;
     }
 

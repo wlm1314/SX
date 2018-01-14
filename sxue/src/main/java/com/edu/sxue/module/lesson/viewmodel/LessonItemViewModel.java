@@ -10,18 +10,16 @@ import com.edu.sxue.api.HttpParams;
 import com.edu.sxue.api.ProgressSubscriber;
 import com.edu.sxue.api.RequestApi;
 import com.edu.sxue.api.RetrofitService;
+import com.edu.sxue.api.entity.HttpResult;
 import com.edu.sxue.app.App;
 import com.edu.sxue.constant.Constants;
 import com.edu.sxue.module.lesson.model.LessonBean;
-import com.edu.sxue.module.lesson.model.LessonTryBean;
 import com.edu.sxue.module.lesson.view.info.LessonInfoActivity;
 import com.flyco.animation.BounceEnter.BounceTopEnter;
 import com.flyco.animation.SlideExit.SlideBottomExit;
 import com.flyco.dialog.listener.OnBtnClickL;
 import com.flyco.dialog.widget.NormalDialog;
 import com.kelin.mvvmlight.command.ReplyCommand;
-
-import java.util.ArrayList;
 
 import base.lib.util.ActivityManager;
 import base.lib.util.NavigateUtils;
@@ -75,11 +73,11 @@ public class LessonItemViewModel {
                 .btnTextColor(ActivityManager.getActivity().getResources().getColor(R.color.blue));
         mRequestApi.lessonTry(HttpParams.getLessonParam(mLessonBean.id, mLessonBean.institution_id, PreferencesUtils.getString(Constants.sUser_userid, "")))
                 .compose(RetrofitService.applySchedulers())
-                .map(new RetrofitService.HttpResultFunc<>())
-                .subscribe(new ProgressSubscriber<ArrayList<LessonTryBean>>() {
+                .subscribe(new ProgressSubscriber<HttpResult>() {
                     @Override
-                    public void onNext(ArrayList<LessonTryBean> lessonTryBeen) {
-                        dialog.show();
+                    public void onNext(HttpResult httpResult) {
+                        if (httpResult.isSuccess())
+                            dialog.show();
                     }
                 });
         dialog.setOnBtnClickL((OnBtnClickL) () -> dialog.dismiss());

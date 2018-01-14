@@ -40,20 +40,19 @@ public class UserOrderViewModel implements IRxBusListener {
         return mAdapter;
     }
 
-    public void getData(int page) {
-        mRequestApi.getUserOrder(HttpParams.getPageParam(PreferencesUtils.getString(Constants.sUser_userid, ""), page + "", ""))
+    public void getData() {
+        mRequestApi.getUserOrder(HttpParams.getMemberIdParam(PreferencesUtils.getString(Constants.sUser_userid, "")))
                 .compose(RetrofitService.applySchedulers())
                 .subscribe(new ProgressSubscriber<HttpResult<ArrayList<UserOrderBean>>>() {
                     @Override
                     public void onNext(HttpResult<ArrayList<UserOrderBean>> httpResult) {
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
-                        if (page == 1)
                             datas.clear();
                         for (UserOrderBean bean : httpResult.getData()) {
                             datas.add(new OrderItemViewModel(bean));
                         }
                         mAdapter.loadMoreComplete();
-                        mAdapter.setEnableLoadMore(page < Integer.valueOf(httpResult.getPage_count()));
+                        mAdapter.setEnableLoadMore(false);
                         mAdapter.notifyDataSetChanged();
                     }
 

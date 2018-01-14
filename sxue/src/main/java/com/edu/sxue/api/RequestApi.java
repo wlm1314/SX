@@ -16,7 +16,6 @@ import com.edu.sxue.module.lesson.model.LessonBean;
 import com.edu.sxue.module.lesson.model.LessonHonorBean;
 import com.edu.sxue.module.lesson.model.LessonInfoBean;
 import com.edu.sxue.module.lesson.model.LessonOrderBean;
-import com.edu.sxue.module.lesson.model.LessonTryBean;
 import com.edu.sxue.module.lesson.model.TeacherBean;
 import com.edu.sxue.module.organ.model.LessonsBean;
 import com.edu.sxue.module.organ.model.OrganBean;
@@ -26,6 +25,7 @@ import com.edu.sxue.module.organ.model.OrganJghjBean;
 import com.edu.sxue.module.organ.model.OrganTeacherBean;
 import com.edu.sxue.module.organ.model.OrgenDesBean;
 import com.edu.sxue.module.user.exercise.model.UserExerciseBean;
+import com.edu.sxue.module.user.main.model.UploadPic;
 import com.edu.sxue.module.user.main.model.UserInfoBean;
 import com.edu.sxue.module.user.order.model.UserOrderBean;
 import com.edu.sxue.module.user.parent.model.UserParentBean;
@@ -38,9 +38,12 @@ import com.edu.sxue.module.user.vip.model.VipCardBean;
 import java.util.ArrayList;
 import java.util.Map;
 
+import okhttp3.RequestBody;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.PartMap;
 import rx.Observable;
 
 /**
@@ -119,7 +122,7 @@ public interface RequestApi {
 
     @FormUrlEncoded
     @POST(HttpPath.lesson_try)
-    Observable<HttpResult<ArrayList<LessonTryBean>>> lessonTry(@FieldMap Map<String, String> params);
+    Observable<HttpResult> lessonTry(@FieldMap Map<String, String> params);
 
     @FormUrlEncoded
     @POST(HttpPath.user_login)
@@ -208,4 +211,17 @@ public interface RequestApi {
     @FormUrlEncoded
     @POST(HttpPath.delReserve)
     Observable<HttpResult> delReserve(@FieldMap Map<String, String> params);
+
+    //上传图片
+    @POST(HttpPath.uploadPic)
+    @Multipart
+    Observable<UploadPic> uploadPic(@PartMap Map<String, RequestBody> params);
+
+    @FormUrlEncoded
+    @POST(HttpPath.getTryoutCourseList)
+    Observable<HttpResult<ArrayList<ClassBean>>> getTryoutCourseList(@FieldMap Map<String, String> params);
+
+    @FormUrlEncoded
+    @POST(HttpPath.getUntryoutCourseList)
+    Observable<HttpResult<ArrayList<ClassBean>>> getUntryoutCourseList(@FieldMap Map<String, String> params);
 }

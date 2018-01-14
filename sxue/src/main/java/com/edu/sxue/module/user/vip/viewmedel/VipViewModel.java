@@ -63,20 +63,19 @@ public class VipViewModel  implements IRxBusListener {
                 });
     }
 
-    public void getConseme(int page){
-        mRequestApi.getConsume(HttpParams.getPageParam(PreferencesUtils.getString(Constants.sUser_userid, ""), page + "", ""))
+    public void getConseme(){
+        mRequestApi.getConsume(HttpParams.getMemberIdParam(PreferencesUtils.getString(Constants.sUser_userid, "")))
                 .compose(RetrofitService.applySchedulers())
                 .subscribe(new ProgressSubscriber<HttpResult<ArrayList<ConsumeBean>>>() {
                     @Override
                     public void onNext(HttpResult<ArrayList<ConsumeBean>> httpResult) {
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
-                        if (page == 1)
                             datas.clear();
                         for (ConsumeBean bean : httpResult.getData()) {
                             datas.add(new ConsumeItemViewModel(bean));
                         }
                         mAdapter.loadMoreComplete();
-                        mAdapter.setEnableLoadMore(page < Integer.valueOf(httpResult.getPage_count()));
+                        mAdapter.setEnableLoadMore(false);
                         mAdapter.notifyDataSetChanged();
                     }
 

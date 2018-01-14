@@ -23,8 +23,6 @@ public class VipActivity extends BaseActivity<ActivityVipBinding> {
     @Inject
     AppBar mAppBar;
 
-    private int page = 1;
-
     @Override
     protected int attachLayoutRes() {
         return R.layout.activity_vip;
@@ -42,7 +40,7 @@ public class VipActivity extends BaseActivity<ActivityVipBinding> {
         mBinding.setViewModel(mViewModel);
         mBinding.rvConsume.setAdapter(mViewModel.getAdapter());
         setListener();
-        mViewModel.getConseme(page++);
+        mViewModel.getConseme();
     }
 
     private void setListener() {
@@ -56,14 +54,13 @@ public class VipActivity extends BaseActivity<ActivityVipBinding> {
             }
         });
         mBinding.swipeLayout.setOnRefreshListener(() -> {
-            page = 1;
-            mViewModel.getConseme(page++);
+            mViewModel.getConseme();
         });
         EmptyLayout emptyLayout = new EmptyLayout(this);
         emptyLayout.setEmptyMessage("暂无数据");
         emptyLayout.setEmptyStatus(STATUS_NO_DATA);
         mViewModel.getAdapter().setEmptyView(emptyLayout);
-        mViewModel.getAdapter().setOnLoadMoreListener(() -> mViewModel.getConseme(page++), mBinding.rvConsume);
+//        mViewModel.getAdapter().setOnLoadMoreListener(() -> mViewModel.getConseme(page++), mBinding.rvConsume);
     }
 
     @Override

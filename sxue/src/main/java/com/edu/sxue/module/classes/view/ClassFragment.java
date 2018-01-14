@@ -44,8 +44,8 @@ public class ClassFragment extends BaseFragment<FragmentClassBinding> {
         mBinding.appbar.setAppbar(mAppBar);
         mTitles.add("未报名上课");
         mTitles.add("已报名上课");
-        mFragments.add(ClassListFragment.newIntance("0"));
-        mFragments.add(ClassListFragment.newIntance("1"));
+        mFragments.add(ClassListFragment.newIntance("0", "class"));
+        mFragments.add(ClassListFragment.newIntance("1", "class"));
         mBinding.vpView.setAdapter(mPagerAdapter);
         NavBarUtils.setTabs(mBinding.magicIndicator, mTitles, mBinding.vpView);
     }

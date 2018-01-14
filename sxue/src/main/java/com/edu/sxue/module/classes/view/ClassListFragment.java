@@ -10,13 +10,10 @@ import com.edu.sxue.injector.component.DaggerClassFragmentComponent;
 import com.edu.sxue.module.base.BaseFragment;
 import com.edu.sxue.module.classes.viewmodel.ClassViewModel;
 import com.edu.sxue.rxbus.event.CommonEvent;
-import com.edu.sxue.widget.EmptyLayout;
 
 import javax.inject.Inject;
 
 import base.lib.widget.recyclerview.DividerLinearItemDecoration;
-
-import static com.edu.sxue.widget.EmptyLayout.STATUS_NO_DATA;
 
 /**
  * 王少岩 在 2017/10/17 创建了它
@@ -26,10 +23,12 @@ public class ClassListFragment extends BaseFragment<FragmentClassListBinding> {
 
     @Inject
     ClassViewModel mViewModel;
+    private int page = 1;
 
-    public static ClassListFragment newIntance(String flag) {
+    public static ClassListFragment newIntance(String flag, String type) {
         Bundle bundle = new Bundle();
         bundle.putString("flag", flag);
+        bundle.putString("type", type);
         ClassListFragment fragment = new ClassListFragment();
         fragment.setArguments(bundle);
         return fragment;
@@ -51,7 +50,7 @@ public class ClassListFragment extends BaseFragment<FragmentClassListBinding> {
         mBinding.rvCommon.addItemDecoration(new DividerLinearItemDecoration(getActivity(), DividerLinearItemDecoration.VERTICAL_LIST, (int) getResources().getDimension(R.dimen.dimen_10), getResources().getColor(R.color.app_bg)));
         mViewModel.getAdapter().addHeaderView(LayoutInflater.from(getActivity()).inflate(R.layout.layout_diver, null));
         mBinding.rvCommon.setAdapter(mViewModel.getAdapter());
-        mViewModel.getData(getArguments().getString("flag"));
+        mViewModel.getData(getArguments().getString("flag"), getArguments().getString("type"), page++);
         setListener();
     }
 
@@ -65,9 +64,13 @@ public class ClassListFragment extends BaseFragment<FragmentClassListBinding> {
                     break;
             }
         });
-        mBinding.swipeLayout.setOnRefreshListener(() -> mViewModel.getData(getArguments().getString("flag")));
+        mBinding.swipeLayout.setOnRefreshListener(() -> {
+            page = 1;
+            mViewModel.getData(getArguments().getString("flag"), getArguments().getString("type"), page++);
+        });
         View emptyLayout = LayoutInflater.from(getContext()).inflate(R.layout.layout_empty, null);
         mViewModel.getAdapter().setEmptyView(emptyLayout);
+        mViewModel.getAdapter().setOnLoadMoreListener(() -> mViewModel.getData(getArguments().getString("flag"), getArguments().getString("type"), page++));
     }
 
     @Override

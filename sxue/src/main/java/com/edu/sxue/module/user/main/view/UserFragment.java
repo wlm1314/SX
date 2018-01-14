@@ -1,8 +1,6 @@
 package com.edu.sxue.module.user.main.view;
 
-import android.support.v7.view.menu.MenuAdapter;
 import android.view.View;
-import android.widget.AdapterView;
 
 import com.edu.sxue.R;
 import com.edu.sxue.databinding.FragmentUserBinding;
@@ -24,7 +22,6 @@ import com.edu.sxue.rxbus.event.CommonEvent;
 import javax.inject.Inject;
 
 import base.lib.util.NavigateUtils;
-import base.lib.util.ToastUtils;
 
 /**
  * Created by Administrator on 2017/6/4.

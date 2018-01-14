@@ -40,20 +40,19 @@ public class SignOrderViewModel implements IRxBusListener {
         return mAdapter;
     }
 
-    public void getData(int page) {
-        mRequestApi.getSignOrder(HttpParams.getPageParam(PreferencesUtils.getString(Constants.sUser_userid, ""), page + "", ""))
+    public void getData() {
+        mRequestApi.getSignOrder(HttpParams.getMemberIdParam(PreferencesUtils.getString(Constants.sUser_userid, "")))
                 .compose(RetrofitService.applySchedulers())
                 .subscribe(new ProgressSubscriber<HttpResult<ArrayList<SignOrderBean>>>() {
                     @Override
                     public void onNext(HttpResult<ArrayList<SignOrderBean>> httpResult) {
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
-//                        if (page == 1)
                         datas.clear();
                         for (SignOrderBean bean : httpResult.getData()) {
                             datas.add(new SignItemViewModel(bean));
                         }
                         mAdapter.loadMoreComplete();
-                        mAdapter.setEnableLoadMore(page < Integer.valueOf(httpResult.getPage_count()));
+                        mAdapter.setEnableLoadMore(false);
                         mAdapter.notifyDataSetChanged();
                     }
 

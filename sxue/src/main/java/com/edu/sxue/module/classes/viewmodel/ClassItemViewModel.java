@@ -34,45 +34,67 @@ public class ClassItemViewModel {
     public ObservableField<Boolean> isclass = new ObservableField<>(true);
     public ObservableField<Boolean> isConfirm = new ObservableField<>(true);
     public ObservableField<Boolean> isCancel = new ObservableField<>(false);
+    public ObservableField<String> confirmTxt = new ObservableField<>("");
 
+    private String mType = "";
     private ClassBean mClassBean;
     private RequestApi mRequestApi;
 
-    public ClassItemViewModel(RequestApi requestApi, ClassBean bean) {
+    public ClassItemViewModel(RequestApi requestApi, ClassBean bean, String type) {
+        mType = type;
         mClassBean = bean;
         mRequestApi = requestApi;
         pic.set(bean.pic);
-        course.set("课程名：" + bean.course);
+        course.set("课程名：" + (TextUtils.isEmpty(bean.course) ? "" : bean.course));
         institution_name.set(bean.institution);
-        start_end.set(bean.start_time + " 至\n" + bean.end_time);
-        time.set(bean.time);
+        String[] start = bean.start_time.split(" ");
+        start_end.set(bean.start_time + "-" + bean.end_time.replace(start[0], ""));
+        time.set(bean.time + " 分钟");
         member.set(bean.member);
         address.set(bean.room);
         isclass.set(!TextUtils.isEmpty(bean.member));
         isConfirm.set(!TextUtils.isEmpty(bean.member));
         isCancel.set(TextUtils.isEmpty(bean.member));
+        confirmTxt.set(type.equals("class") ? "我要上课" : "报名试听");
     }
 
-    public static ArrayList<ClassItemViewModel> getList(RequestApi requestApi, ArrayList<ClassBean> classBeens) {
+    public static ArrayList<ClassItemViewModel> getList(RequestApi requestApi, ArrayList<ClassBean> classBeens, String type) {
         ArrayList<ClassItemViewModel> list = new ArrayList<>();
         for (ClassBean bean : classBeens) {
-            list.add(new ClassItemViewModel(requestApi, bean));
+            list.add(new ClassItemViewModel(requestApi, bean, type));
         }
         return list;
     }
 
     public ReplyCommand confirmCommand = new ReplyCommand(() -> {
-        mRequestApi.addReserve(HttpParams.getLessonParam(mClassBean.course_id, mClassBean.institution_id, PreferencesUtils.getString(Constants.sUser_userid, "")))
-                .compose(RetrofitService.applySchedulers())
-                .subscribe(new ProgressSubscriber<HttpResult>() {
-                    @Override
-                    public void onNext(HttpResult httpResult) {
-                        if (httpResult.isSuccess()) {
-                            ToastUtils.showToast("报名成功");
-                            isConfirm.set(false);
+        if (mType.equals("class"))
+            mRequestApi.addReserve(HttpParams.addReserve(mClassBean.course_id, mClassBean.institution_id, PreferencesUtils.getString(Constants.sUser_userid, ""), mClassBean.start_time, mClassBean.end_time))
+                    .compose(RetrofitService.applySchedulers())
+                    .subscribe(new ProgressSubscriber<HttpResult>() {
+                        @Override
+                        public void onNext(HttpResult httpResult) {
+                            if (httpResult.isSuccess()) {
+                                ToastUtils.showToast("报名成功");
+                                isConfirm.set(false);
+                            } else
+                                ToastUtils.showToast(httpResult.getInfo());
                         }
-                    }
-                });
+                    });
+        else{
+            mRequestApi.lessonTry(HttpParams.lessonTry(mClassBean.course_id, mClassBean.room_reserve_id, mClassBean.institution_id, PreferencesUtils.getString(Constants.sUser_userid, "")))
+                    .compose(RetrofitService.applySchedulers())
+                    .subscribe(new ProgressSubscriber<HttpResult>() {
+                        @Override
+                        public void onNext(HttpResult httpResult) {
+                            if (httpResult.isSuccess()) {
+                                ToastUtils.showToast("报名成功");
+                                isConfirm.set(false);
+                            } else
+                                ToastUtils.showToast(httpResult.getInfo());
+                        }
+                    });
+
+        }
     });
     public ReplyCommand cancelCommand = new ReplyCommand(() -> {
         mRequestApi.delReserve(HttpParams.getLessonParam(mClassBean.course_id, mClassBean.institution_id, PreferencesUtils.getString(Constants.sUser_userid, "")))

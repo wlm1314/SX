@@ -18,7 +18,7 @@
 
         <include
             android:id="@+id/appbar"
-            layout="@layout/tool_bar"/>
+            layout="@layout/tool_bar_white"/>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -59,6 +59,7 @@
                         android:layout_marginRight="@dimen/dimen_10"
                         android:layout_toLeftOf="@id/iv_right"
                         app:uri="@{viewModel.imgUrl}"
+                        app:clickCommand="@{viewModel.uploadImg}"
                         app:placeholderImageRes="@{R.mipmap.adavar}"/>
 
 

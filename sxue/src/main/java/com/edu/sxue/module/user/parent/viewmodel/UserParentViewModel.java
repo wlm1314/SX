@@ -41,7 +41,7 @@ public class UserParentViewModel implements IRxBusListener {
     }
 
     public void getData() {
-        mRequestApi.getUserParent(HttpParams.getPageParam(PreferencesUtils.getString(Constants.sUser_userid, ""), "1", ""))
+        mRequestApi.getUserParent(HttpParams.getMemberIdParam(PreferencesUtils.getString(Constants.sUser_userid, "")))
                 .compose(RetrofitService.applySchedulers())
                 .subscribe(new ProgressSubscriber<HttpResult<ArrayList<UserParentBean>>>() {
                     @Override

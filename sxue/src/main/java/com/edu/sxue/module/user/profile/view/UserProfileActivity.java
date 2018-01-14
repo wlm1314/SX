@@ -1,5 +1,6 @@
 package com.edu.sxue.module.user.profile.view;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.bigkoo.pickerview.TimePickerView;
@@ -49,7 +50,7 @@ public class UserProfileActivity extends BaseActivity<ActivityUserdataBinding> i
     protected void initViews() {
         mAppBar.setRight("确定", () ->
                 mViewModel.updateUserProfile(PreferencesUtils.getString(Constants.sUser_userid, ""),
-                        mViewModel.getUserProfileBean().pic,
+                        mViewModel.imgUrl.get(),
                         mBinding.cvNick.getInfoText(),
                         mBinding.cvSex.getInfoText().equals("男") ? "1" : "2",
                         mBinding.cvBirthday.getInfoText(),
@@ -123,5 +124,11 @@ public class UserProfileActivity extends BaseActivity<ActivityUserdataBinding> i
                 timePickerView.show();
                 break;
         }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        mViewModel.onActivityResult(requestCode, resultCode, data);
     }
 }

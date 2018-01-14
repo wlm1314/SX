@@ -40,20 +40,19 @@ public class UserExerciseViewModel implements IRxBusListener {
         return mAdapter;
     }
 
-    public void getData(int page) {
-        mRequestApi.getUserExercise(HttpParams.getPageParam(PreferencesUtils.getString(Constants.sUser_userid, ""), page + "", ""))
+    public void getData() {
+        mRequestApi.getUserExercise(HttpParams.getMemberIdParam(PreferencesUtils.getString(Constants.sUser_userid, "")))
                 .compose(RetrofitService.applySchedulers())
                 .subscribe(new ProgressSubscriber<HttpResult<ArrayList<UserExerciseBean>>>() {
                     @Override
                     public void onNext(HttpResult<ArrayList<UserExerciseBean>> httpResult) {
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
-                        if (page == 1)
                             datas.clear();
                         for (UserExerciseBean bean : httpResult.getData()) {
                             datas.add(new ExerciseItemViewModel(bean));
                         }
                         mAdapter.loadMoreComplete();
-                        mAdapter.setEnableLoadMore(page < Integer.valueOf(httpResult.getPage_count()));
+                        mAdapter.setEnableLoadMore(false);
                         mAdapter.notifyDataSetChanged();
                     }
 

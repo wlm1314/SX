@@ -28,6 +28,7 @@ public class ClassBean {
     public String max_member;
     public String room_id;
     public String member_id;
+    public String room_reserve_id;
     public String room;
     public String institution;
     public String time;

@@ -39,8 +39,12 @@ public class HttpPath {
     public static final String organ_envoronment= "smartmalls/AppParents/inst/inst_honor";//机构环境
     public static final String inst_teacher= "smartmalls/AppParents/inst/inst_teacher";//机构师资力量
     public static final String inst_certificate= "smartmalls/AppParents/inst/inst_certificate";//机构行业资质
-    public static final String getCoursePlanList= "smartmalls/AppParents/course/getCoursePlanList";//未报名上课
-    public static final String CoursePlanList= "smartmalls/AppParents/course/CoursePlanList";//已报名上课
+    public static final String getCoursePlanList= "smartmalls/AppParents/course/getUnregisterCoursePlanList";//未报名上课
+    public static final String CoursePlanList= "smartmalls/AppParents/course/getRegisterCoursePlanList";//已报名上课
     public static final String addReserve= "smartmalls/AppParents/course/addReserve";//我要上课
     public static final String delReserve= "smartmalls/AppParents/course/delReserve";//取消上课
+    public static final String uploadPic= "smartmalls/appParents/Upload/worker_pic_api";//上传头像
+    public static final String app_reserve_list= "smartmalls/appParents/Index/app_reserve_list";//我的课程表
+    public static final String getTryoutCourseList= "smartmalls/AppParents/course/getTryoutCourseList";//已报名
+    public static final String getUntryoutCourseList= "smartmalls/AppParents/course/getUntryoutCourseList";//未报名
 }

@@ -38,6 +38,7 @@
                 android:padding="12dp">
 
                 <TextView
+                    android:id="@+id/textView3"
                     style="@style/text_sub"
                     android:layout_gravity="center"
                     android:layout_marginBottom="@dimen/dimen_10"
@@ -45,7 +46,7 @@
                     android:gravity="center"
                     android:text="@{viewModel.start_end}"
                     android:textSize="@dimen/text_size_11"
-                    tools:text="2017.08.09 14:00 - 15:00" />
+                    tools:text="2017.08.09 14:00 - 15:00"/>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -135,7 +136,7 @@
                             android:layout_marginTop="10dp"
                             android:background="@drawable/rect_radius_blue"
                             android:gravity="center"
-                            android:text="我要上课"
+                            android:text="@{viewModel.confirmTxt}"
                             android:textColor="@color/white"
                             android:visibility="@{viewModel.isConfirm?View.VISIBLE:View.GONE}"
                             app:clickCommand="@{viewModel.confirmCommand}" />
@@ -152,7 +153,7 @@
                             tools:visibility="gone"
                             android:text="取消上课"
                             android:textColor="@color/white"
-                            android:visibility="@{viewModel.isCancel?View.VISIBLE:View.GONE}"
+                            android:visibility="gone"
                             app:clickCommand="@{viewModel.cancelCommand}" />
                     </LinearLayout>
 
