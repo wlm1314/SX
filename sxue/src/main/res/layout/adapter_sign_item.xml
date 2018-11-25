@@ -1,77 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
-        <import type="com.edu.sxue.R"/>
+        <import type="com.edu.sxue.R" />
 
         <variable
             name="viewModel"
-            type="com.edu.sxue.module.user.signorder.viewmodel.SignItemViewModel"/>
+            type="com.edu.sxue.module.user.signorder.viewmodel.SignItemViewModel" />
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:orientation="horizontal"
-        android:paddingBottom="@dimen/dimen_10"
-        android:paddingLeft="@dimen/dimen_15"
-        android:paddingRight="@dimen/dimen_15"
-        android:paddingTop="@dimen/dimen_15"
-        app:clickCommand="@{viewModel.itemCommand}">
+        android:orientation="vertical">
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="@dimen/dimen_100"
-            app:placeholderImageRes="@{R.mipmap.lesson_placeholder}"
-            app:uri="@{viewModel.pic}"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:background="@color/white"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/dimen_15"
+            android:paddingTop="@dimen/dimen_15"
+            android:paddingRight="@dimen/dimen_15"
+            android:paddingBottom="@dimen/dimen_10">
 
-            <TextView
-                style="@style/text_bigger"
-                android:paddingLeft="@dimen/dimen_15"
-                android:text="@{viewModel.cour_name}"
-                android:textSize="@dimen/text_size_17"
-                tools:text="美术创意设计课"/>
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="@dimen/dimen_100"
+                app:placeholderImageRes="@{R.mipmap.lesson_placeholder}"
+                app:uri="@{viewModel.pic}" />
 
-            <TextView
-                style="@style/text_sub"
-                android:drawableLeft="@mipmap/jigou"
-                android:drawablePadding="10dp"
-                android:paddingLeft="@dimen/dimen_15"
-                android:paddingTop="@dimen/dimen_5"
-                android:text="@{viewModel.inst_name}"
-                android:textSize="@dimen/text_size_13"
-                tools:text="机构名：北京鑫美传媒"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/text_bigger"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:text="@{viewModel.cour_name}"
+                    android:textSize="@dimen/text_size_17"
+                    tools:text="美术创意设计课" />
+
+                <TextView
+                    style="@style/text_sub"
+                    android:drawableLeft="@mipmap/jigou"
+                    android:drawablePadding="10dp"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:text="@{viewModel.inst_name}"
+                    android:textSize="@dimen/text_size_13"
+                    tools:text="机构名：北京鑫美传媒" />
 
 
-            <TextView
-                style="@style/text_sub"
-                android:drawableLeft="@mipmap/time"
-                android:drawablePadding="@dimen/dimen_10"
-                android:paddingLeft="@dimen/dimen_15"
-                android:paddingTop="@dimen/dimen_5"
-                android:text="@{viewModel.start_time}"
-                android:textSize="@dimen/text_size_11"
-                tools:text="45分钟"/>
+                <TextView
+                    style="@style/text_sub"
+                    android:drawableLeft="@mipmap/time"
+                    android:drawablePadding="@dimen/dimen_10"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:text="@{viewModel.start_time}"
+                    android:textSize="@dimen/text_size_11"
+                    tools:text="45分钟" />
 
-            <TextView
-                style="@style/text_sub"
-                android:drawableLeft="@mipmap/didian"
-                android:drawablePadding="10dp"
-                android:paddingLeft="@dimen/dimen_15"
-                android:paddingTop="@dimen/dimen_5"
-                android:text="@{viewModel.room_number}"
-                android:textSize="@dimen/text_size_11"
-                android:visibility="gone"/>
+                <TextView
+                    style="@style/text_sub"
+                    android:drawableLeft="@mipmap/didian"
+                    android:drawablePadding="10dp"
+                    android:paddingLeft="@dimen/dimen_15"
+                    android:paddingTop="@dimen/dimen_5"
+                    android:text="@{viewModel.room_number}"
+                    android:textSize="@dimen/text_size_11"
+                    android:visibility="gone" />
 
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View style="@style/line_h" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:gravity="center">
+
+            <Button
+                android:layout_width="110dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:background="@drawable/bt_goumai"
+                android:text="取消预订"
+                clickCommand="@{viewModel.cancelCommand}"
+                android:textColor="#ffffff"
+                android:textSize="15sp" />
         </LinearLayout>
     </LinearLayout>
 </layout>

@@ -40,63 +40,65 @@
             android:layout_marginLeft="@dimen/dimen_20"
             android:layout_marginRight="@dimen/dimen_20" />
 
-        <View
-            style="@style/line_h"
-            android:layout_marginLeft="@dimen/dimen_20"
-            android:layout_marginRight="@dimen/dimen_20" />
-
-        <TextView
-            style="@style/text_normal"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="@dimen/dimen_15"
-            android:layout_marginRight="@dimen/dimen_15"
-            android:drawableRight="@mipmap/ic_arrow_right"
-            android:gravity="center_vertical"
-            android:padding="@dimen/dimen_10"
-            android:text="给个好评"
-            android:textColor="#888888"
-            android:textSize="15sp" />
-
-        <View
-            style="@style/line_h"
-            android:layout_marginLeft="@dimen/dimen_20"
-            android:layout_marginRight="@dimen/dimen_20" />
-
-        <TextView
-            style="@style/text_bigger"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:layout_marginLeft="@dimen/dimen_30"
-            android:layout_marginRight="@dimen/dimen_30"
-            android:layout_marginTop="143dp"
-            android:background="@drawable/bt_login"
-            android:gravity="center"
-            android:text="安全退出"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:clickCommand="@{viewModel.logoutCommand}" />
-
-        <TextView
-            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:text="当前版本号v1.00"
-            android:textColor="#666666"
-            android:textSize="15sp" />
+            android:orientation="vertical"
+            android:visibility="gone">
 
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content">
+            <TextView
+                style="@style/text_normal"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginLeft="@dimen/dimen_15"
+                android:layout_marginRight="@dimen/dimen_15"
+                android:drawableRight="@mipmap/ic_arrow_right"
+                android:gravity="center_vertical"
+                android:padding="@dimen/dimen_10"
+                android:text="给个好评"
+                android:textColor="#888888"
+                android:textSize="15sp" />
+
+            <View
+                style="@style/line_h"
+                android:layout_marginLeft="@dimen/dimen_20"
+                android:layout_marginRight="@dimen/dimen_20" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/text_bigger"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginLeft="@dimen/dimen_30"
+                android:layout_marginRight="@dimen/dimen_30"
+                android:background="@drawable/bt_login"
+                android:gravity="center"
+                android:text="安全退出"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:clickCommand="@{viewModel.logoutCommand}" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="当前版本号v1.0.0"
+                android:layout_marginBottom="@dimen/dimen_50"
+                android:textColor="#666666"
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tv_xyi"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+                android:layout_marginTop="@dimen/dimen_10"
                 android:gravity="center"
                 android:text="双创服务条款及使用协议"
                 android:textColor="#0086ff"
@@ -105,14 +107,16 @@
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_below="@+id/tv_xyi"
-                android:layout_marginTop="15dp"
+                android:layout_marginBottom="@dimen/dimen_20"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="北京正德双创有限公司版权所有"
                 android:textColor="#000000"
                 android:textSize="11sp" />
 
-        </RelativeLayout>
+        </LinearLayout>
+
+
     </LinearLayout>
 </layout>
