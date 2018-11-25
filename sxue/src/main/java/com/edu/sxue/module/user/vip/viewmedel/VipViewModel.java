@@ -75,9 +75,14 @@ public class VipViewModel implements IRxBusListener {
                         for (ConsumeBean bean : httpResult.getData()) {
                             datas.add(new ConsumeItemViewModel(bean));
                         }
-                        mAdapter.loadMoreComplete();
-                        mAdapter.setEnableLoadMore(httpResult.getData().size() < 10);
-                        mAdapter.notifyDataSetChanged();
+                        if (httpResult.getData().size()<10){
+                            mAdapter.setEnableLoadMore(false);
+                            mAdapter.loadMoreEnd(true);
+                        }else{
+                            mAdapter.loadMoreComplete();
+                            mAdapter.setEnableLoadMore(true);
+//                            mAdapter.notifyDataSetChanged();
+                        }
                     }
 
                     @Override
