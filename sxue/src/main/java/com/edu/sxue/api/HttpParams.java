@@ -216,4 +216,11 @@ public class HttpParams {
         map.put("pagesize", "10");
         return map;
     }
+
+    public static Map<String,String> cancelCourse(String course_id, String course_card_id) {
+        Map<String, String> map = new HashMap<>();
+        map.put("course_id", course_id);
+        map.put("course_card_id", course_card_id);
+        return map;
+    }
 }

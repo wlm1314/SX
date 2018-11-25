@@ -49,7 +49,7 @@ public class SignOrderViewModel implements IRxBusListener {
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
                         datas.clear();
                         for (SignOrderBean bean : httpResult.getData()) {
-                            datas.add(new SignItemViewModel(bean));
+                            datas.add(new SignItemViewModel(mRequestApi, bean));
                         }
                         mAdapter.loadMoreComplete();
                         mAdapter.setEnableLoadMore(false);

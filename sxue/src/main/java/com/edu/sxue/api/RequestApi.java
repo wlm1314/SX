@@ -224,4 +224,8 @@ public interface RequestApi {
     @FormUrlEncoded
     @POST(HttpPath.getUntryoutCourseList)
     Observable<HttpResult<ArrayList<ClassBean>>> getUntryoutCourseList(@FieldMap Map<String, String> params);
+
+    @FormUrlEncoded
+    @POST(HttpPath.app_cancel_course)
+    Observable<HttpResult> cancelCourse(@FieldMap Map<String, String> params);
 }

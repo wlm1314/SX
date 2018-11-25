@@ -16,4 +16,6 @@ public class SignOrderBean {
     public String pic;
     public String time;
     public String address;
+    public String course_id;
+    public String course_card_id;
 }
