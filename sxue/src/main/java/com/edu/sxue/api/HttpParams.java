@@ -217,10 +217,11 @@ public class HttpParams {
         return map;
     }
 
-    public static Map<String,String> cancelCourse(String course_id, String course_card_id) {
+    public static Map<String,String> cancelCourse(String course_id, String member_id, String reserve_time) {
         Map<String, String> map = new HashMap<>();
         map.put("course_id", course_id);
-        map.put("course_card_id", course_card_id);
+        map.put("member_id", member_id);
+        map.put("reserve_time", reserve_time);
         return map;
     }
 }

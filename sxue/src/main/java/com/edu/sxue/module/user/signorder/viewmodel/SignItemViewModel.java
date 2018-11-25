@@ -8,10 +8,12 @@ import com.edu.sxue.api.ProgressSubscriber;
 import com.edu.sxue.api.RequestApi;
 import com.edu.sxue.api.RetrofitService;
 import com.edu.sxue.api.entity.HttpResult;
+import com.edu.sxue.constant.Constants;
 import com.edu.sxue.module.user.signorder.model.SignOrderBean;
 import com.edu.sxue.module.user.vip.model.VipCardBean;
 import com.kelin.mvvmlight.command.ReplyCommand;
 
+import base.lib.util.PreferencesUtils;
 import base.lib.util.ToastUtils;
 
 /**
@@ -25,6 +27,7 @@ public class SignItemViewModel {
     public ObservableField<String> inst_name = new ObservableField<>();
     public ObservableField<String> start_time = new ObservableField<>();
     public ObservableField<String> room_number = new ObservableField<>();
+    public ObservableField<Boolean> show = new ObservableField<>(true);
     private SignOrderBean mSignBean;
 
     public SignItemViewModel(RequestApi requestApi, SignOrderBean bean) {
@@ -39,22 +42,19 @@ public class SignItemViewModel {
     }
 
     public ReplyCommand cancelCommand = new ReplyCommand(() -> {
-        if (TextUtils.isEmpty(mSignBean.course_id)){
+        if (TextUtils.isEmpty(mSignBean.course_id)) {
             ToastUtils.showToast("课程Id为空");
             return;
         }
-        if (TextUtils.isEmpty(mSignBean.course_card_id)){
-            ToastUtils.showToast("课程包Id为空");
-            return;
-        }
-        mRequest.cancelCourse(HttpParams.cancelCourse(mSignBean.course_id, mSignBean.course_card_id))
+        mRequest.cancelCourse(HttpParams.cancelCourse(mSignBean.course_id, PreferencesUtils.getString(Constants.sUser_userid, ""), mSignBean.time))
                 .compose(RetrofitService.applySchedulers())
                 .subscribe(new ProgressSubscriber<HttpResult>() {
                     @Override
                     public void onNext(HttpResult httpResult) {
                         if (httpResult.isSuccess()) {
                             ToastUtils.showToast("取消成功");
-                        }else{
+                            show.set(false);
+                        } else {
                             ToastUtils.showToast("取消失败");
                         }
                     }
