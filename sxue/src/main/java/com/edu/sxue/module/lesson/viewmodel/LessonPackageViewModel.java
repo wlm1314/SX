@@ -7,6 +7,7 @@ import com.edu.sxue.api.RequestApi;
 import com.edu.sxue.api.RetrofitService;
 import com.edu.sxue.module.base.BaseAdapter;
 import com.edu.sxue.module.lesson.model.CourseCardBean;
+import com.edu.sxue.module.lesson.model.LessonBean;
 
 import java.util.ArrayList;
 
@@ -27,14 +28,15 @@ public class LessonPackageViewModel {
         return mAdapter;
     }
 
-    public void getData(String id) {
+    public void getData(String id, LessonBean lessonBean) {
         mRequestApi.getCourseCard(HttpParams.getInfoParam(id))
                 .compose(RetrofitService.applySchedulers())
                 .map(new RetrofitService.HttpResultFunc<>())
                 .subscribe(new ProgressSubscriber<CourseCardBean>() {
                     @Override
                     public void onNext(CourseCardBean courseCardBean) {
-                        mList.addAll(LessonPackageItemViewModel.getList(courseCardBean));
+                        mList.addAll(LessonPackageItemViewModel.getList(courseCardBean, lessonBean, mRequestApi));
+                        mAdapter.notifyDataSetChanged();
                     }
                 });
 

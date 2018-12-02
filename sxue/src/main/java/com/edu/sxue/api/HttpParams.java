@@ -4,6 +4,7 @@ package com.edu.sxue.api;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.DoubleUnaryOperator;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -36,6 +37,7 @@ public class HttpParams {
         map.put("id", id);
         return map;
     }
+
     public static Map<String, String> getMemberIdParam(String member_id) {
         Map<String, String> map = new HashMap<>();
         map.put("member_id", member_id);
@@ -97,6 +99,7 @@ public class HttpParams {
 
     /**
      * 修改密码
+     *
      * @param password_new
      * @param password_old
      * @return
@@ -118,6 +121,7 @@ public class HttpParams {
 
     /**
      * 修改个人信息
+     *
      * @param id
      * @param pic
      * @param name
@@ -145,7 +149,7 @@ public class HttpParams {
         return map;
     }
 
-    public static Map<String, String> getPageParam(String id, String page, String keyword){
+    public static Map<String, String> getPageParam(String id, String page, String keyword) {
         Map<String, String> map = new HashMap<>();
         map.put("member_id", id);
         map.put("page", page);
@@ -154,7 +158,7 @@ public class HttpParams {
         return map;
     }
 
-    public static Map<String, String> getLessonListParam(String id, String page, String courseId){
+    public static Map<String, String> getLessonListParam(String id, String page, String courseId) {
         Map<String, String> map = new HashMap<>();
         map.put("member_id", id);
         map.put("page", page);
@@ -163,30 +167,32 @@ public class HttpParams {
         return map;
     }
 
-    public static Map<String, String> getCheckCode(String phone){
+    public static Map<String, String> getCheckCode(String phone) {
         Map<String, String> map = new HashMap<>();
         map.put("phone", phone);
         return map;
     }
-    public static Map<String, String> getLesonOrderAppCourseApi(String id,String institution_id,String card_id,String member_id){
+
+    public static Map<String, String> getLesonOrderAppCourseApi(String id, String institution_id, String card_id, String member_id) {
         Map<String, String> map = new HashMap<>();
-        map.put("id",id);
-        map.put("institution_id",institution_id);
-        map.put("card_id",card_id);
-        map.put("member_id",member_id);
+        map.put("id", id);
+        map.put("institution_id", institution_id);
+        map.put("card_id", card_id);
+        map.put("member_id", member_id);
         return map;
     }
-    public static Map<String, String> getSchedule(String id, String page, String keyword,String time){
+
+    public static Map<String, String> getSchedule(String id, String page, String keyword, String time) {
         Map<String, String> map = new HashMap<>();
         map.put("member_id", id);
         map.put("page", page);
         map.put("keyword", keyword);
         map.put("pagesize", "10");
-        map.put("time",time);
+        map.put("time", time);
         return map;
     }
 
-    public static Map<String, RequestBody> uploadPic(String memberId, File uploadfile){
+    public static Map<String, RequestBody> uploadPic(String memberId, File uploadfile) {
         RequestBody member_id = RequestBody.create(MediaType.parse("text/plain"), memberId);
         Map<String, RequestBody> map = new HashMap<>();
         map.put("member_id", member_id);
@@ -194,7 +200,7 @@ public class HttpParams {
         if (uploadfile != null) {
             RequestBody fileBody =
                     RequestBody.create(MediaType.parse("multipart/form-data"), uploadfile);
-            map.put("uploadfile\"; filename=\""+uploadfile.getName()+"", fileBody);
+            map.put("uploadfile\"; filename=\"" + uploadfile.getName() + "", fileBody);
         }
         return map;
     }
@@ -209,7 +215,7 @@ public class HttpParams {
         return map;
     }
 
-    public static Map<String, String> getPageMemberParam(String member_id, String page){
+    public static Map<String, String> getPageMemberParam(String member_id, String page) {
         Map<String, String> map = new HashMap<>();
         map.put("member_id", member_id);
         map.put("page", page);
@@ -217,11 +223,40 @@ public class HttpParams {
         return map;
     }
 
-    public static Map<String,String> cancelCourse(String course_id, String member_id, String reserve_time) {
+    public static Map<String, String> cancelCourse(String course_id, String member_id, String reserve_time) {
         Map<String, String> map = new HashMap<>();
         map.put("course_id", course_id);
         map.put("member_id", member_id);
         map.put("reserve_time", reserve_time);
+        return map;
+    }
+
+    public static Map<String, String> cancelActivity(String activityId, String memberId) {
+        Map<String, String> map = new HashMap<>();
+        map.put("activityId", activityId);
+        map.put("memberId", memberId);
+        return map;
+    }
+
+    public static Map<String, String> orderLesson(String institutions_id,
+                                                  String institutions_name,
+                                                  String course_id,
+                                                  String course_price,
+                                                  String course_name,
+                                                  String course_card_id,
+                                                  String course_card_name,
+                                                  String member_id,
+                                                  String member_phone) {
+        Map<String, String> map = new HashMap<>();
+        map.put("institutions_id", institutions_id);//机构id
+        map.put("institutions_name", institutions_name);//机构名称
+        map.put("course_id", course_id);//课程id
+        map.put("course_price", course_price);//课程价格
+        map.put("course_name", course_name);//课程名称
+        map.put("course_card_id", course_card_id);//课程包id
+        map.put("course_card_name", course_card_name);//课程包名称
+        map.put("member_id", member_id);//会员id
+        map.put("member_phone", member_phone);//会员电话
         return map;
     }
 }

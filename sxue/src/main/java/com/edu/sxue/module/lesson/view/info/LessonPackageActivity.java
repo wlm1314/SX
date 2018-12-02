@@ -33,7 +33,7 @@ public class LessonPackageActivity extends BaseActivity<ActivityLessonPackageBin
         mBinding.appbar.setAppbar(mAppBar);
         mBinding.setViewModel(mViewModel);
         mBinding.rvLessonPackage.setAdapter(mViewModel.getAdapter());
-        mViewModel.getData(lessonBean.id);
+        mViewModel.getData(lessonBean.id, lessonBean);
     }
 
     @Override

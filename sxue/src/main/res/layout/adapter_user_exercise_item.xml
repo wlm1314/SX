@@ -6,7 +6,7 @@
     <data>
 
         <import type="com.edu.sxue.R" />
-
+        <import type="android.view.View"/>
         <variable
             name="viewModel"
             type="com.edu.sxue.module.user.exercise.viewmodel.ExerciseItemViewModel" />
@@ -83,16 +83,17 @@
 
         <RelativeLayout
             android:layout_width="fill_parent"
-            android:visibility="gone"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp">
 
             <Button
+                clickCommand="@{viewModel.cancelCommand}"
                 android:layout_width="110dp"
                 android:layout_height="30dp"
+                android:visibility="@{viewModel.show?View.VISIBLE:View.GONE}"
                 android:layout_centerInParent="true"
                 android:background="@drawable/bt_goumai"
-                android:text="查看"
+                android:text="取消"
                 android:textColor="#ffffff"
                 android:textSize="15sp" />
         </RelativeLayout>

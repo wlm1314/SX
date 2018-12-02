@@ -35,6 +35,7 @@ public class LessonPowerViewModel {
                     @Override
                     public void onNext(TeacherBean teacherBean) {
                         mList.addAll(LessonTeacherItemViewModel.getList(teacherBean));
+                        mAdapter.notifyDataSetChanged();
                     }
                 });
 

@@ -7,6 +7,7 @@ import com.edu.sxue.api.RequestApi;
 import com.edu.sxue.module.base.BaseAdapter;
 import com.edu.sxue.module.base.InfoItemViewModel;
 import com.edu.sxue.module.lesson.model.LessonBean;
+import com.edu.sxue.module.lesson.view.info.LessonPackageActivity;
 import com.edu.sxue.module.lesson.view.info.LessonTryActivity;
 import com.kelin.mvvmlight.command.ReplyCommand;
 
@@ -66,5 +67,8 @@ public class LessonInfoViewModel {
 //        dialog.setOnBtnClickL((OnBtnClickL) () -> dialog.dismiss());
     });
     public ReplyCommand orderCommand = new ReplyCommand(() -> {
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("lesson", mLessonBean);
+        NavigateUtils.startActivity(LessonPackageActivity.class, bundle);
     });
 }

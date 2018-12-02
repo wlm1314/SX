@@ -19,5 +19,6 @@ public class Constants {
     public static final String sUser_useraccount= "useraccount";
     public static final String sUser_username = "username";
     public static final String sUser_pic = "userpic";
+    public static final String sUser_phone = "userphone";
 
 }

@@ -11,4 +11,5 @@ public class UserExerciseBean {
     public String activity_end_time;//	datetime		活动结束时间
     public String inst_name;//	varchar		机构名
 
+    public String id;
 }

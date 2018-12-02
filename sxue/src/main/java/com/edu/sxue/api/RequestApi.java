@@ -174,7 +174,7 @@ public interface RequestApi {
 
     @FormUrlEncoded
     @POST(HttpPath.lesson__app_order)
-    Observable<HttpResult> getLesonOrderAppCourseApi(@FieldMap Map<String, String> params);
+    Observable<HttpResult> orderLesson(@FieldMap Map<String, String> params);
 
     @FormUrlEncoded
     @POST(HttpPath.course_honor)
@@ -228,4 +228,8 @@ public interface RequestApi {
     @FormUrlEncoded
     @POST(HttpPath.app_cancel_course)
     Observable<HttpResult> cancelCourse(@FieldMap Map<String, String> params);
+
+    @FormUrlEncoded
+    @POST(HttpPath.app_activity_delete)
+    Observable<HttpResult> cancelActivity(@FieldMap Map<String, String> params);
 }

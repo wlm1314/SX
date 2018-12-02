@@ -49,7 +49,7 @@ public class UserExerciseViewModel implements IRxBusListener {
                         mRxBus.post(new CommonEvent(CommonEvent.FLAG_COMPLETE));
                             datas.clear();
                         for (UserExerciseBean bean : httpResult.getData()) {
-                            datas.add(new ExerciseItemViewModel(bean));
+                            datas.add(new ExerciseItemViewModel(mRequestApi, bean));
                         }
                         mAdapter.loadMoreComplete();
                         mAdapter.setEnableLoadMore(false);

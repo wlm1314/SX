@@ -15,6 +15,7 @@ public class CourseCardBean {
         public String course_id;
         public String name;
         public String price_typeid;
+        public String all_count;
         public String validity;
         public String validity_ttimes;
         public String course_price;

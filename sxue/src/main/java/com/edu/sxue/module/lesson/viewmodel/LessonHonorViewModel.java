@@ -35,6 +35,7 @@ public class LessonHonorViewModel {
                     @Override
                     public void onNext(LessonHonorBean lessonHonorBean) {
                         mList.addAll(LessonHonorItemViewModel.getList(lessonHonorBean));
+                        mAdapter.notifyDataSetChanged();
                     }
                 });
     }

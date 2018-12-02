@@ -51,12 +51,8 @@ public class SignItemViewModel {
                 .subscribe(new ProgressSubscriber<HttpResult>() {
                     @Override
                     public void onNext(HttpResult httpResult) {
-                        if (httpResult.isSuccess()) {
-                            ToastUtils.showToast("取消成功");
-                            show.set(false);
-                        } else {
-                            ToastUtils.showToast("取消失败");
-                        }
+                        ToastUtils.showToast(httpResult.getInfo());
+                        show.set(!httpResult.isSuccess());
                     }
 
                     @Override

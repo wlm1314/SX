@@ -50,6 +50,7 @@ public class LoginViewModel {
                         PreferencesUtils.saveString(Constants.sUser_useraccount, account.get());
                         PreferencesUtils.saveString(Constants.sUser_username, bean.name);
                         PreferencesUtils.saveString(Constants.sUser_pic, bean.pic);
+                        PreferencesUtils.saveString(Constants.sUser_phone, account.get());
                         PreferencesUtils.saveBoolean(Constants.sUser_loginFlag, true);
                         NavigateUtils.startActivity(HomeActivity.class);
                         ActivityManager.getActivity().finish();

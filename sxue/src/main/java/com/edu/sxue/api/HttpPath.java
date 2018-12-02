@@ -48,4 +48,5 @@ public class HttpPath {
     public static final String getTryoutCourseList= "smartmalls/AppParents/course/getTryoutCourseList";//已报名
     public static final String getUntryoutCourseList= "smartmalls/AppParents/course/getUntryoutCourseList";//未报名
     public static final String app_cancel_course= "smartmalls/appParents/Index/app_cancel_course";//取消报名
+    public static final String app_activity_delete= "smartmalls/appParents/Activity/app_activity_delete";//取消活动
 }
