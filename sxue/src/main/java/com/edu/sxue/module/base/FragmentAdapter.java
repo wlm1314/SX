@@ -14,7 +14,7 @@ import com.edu.sxue.module.organ.view.OrganListFragment;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
 
-    private static final int PAGE_COUNT = 4;
+    private static final int PAGE_COUNT = 1;
     private int mFlag;
 
     public FragmentAdapter(FragmentManager fm, int flag) {

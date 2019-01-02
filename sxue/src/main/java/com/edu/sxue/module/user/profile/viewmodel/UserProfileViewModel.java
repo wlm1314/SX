@@ -69,7 +69,7 @@ public class UserProfileViewModel implements IRxBusListener {
                             ToastUtils.showToast("修改成功");
                             ActivityManager.getActivity().finish();
                         }else
-                            ToastUtils.showToast("修改失败");
+                            ToastUtils.showToast(httpResult.getInfo());
                     }
                 });
     }
