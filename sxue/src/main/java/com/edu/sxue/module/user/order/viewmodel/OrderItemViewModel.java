@@ -16,6 +16,7 @@ public class OrderItemViewModel {
     public ObservableField<String> cour_name = new ObservableField<>();
     public ObservableField<String> inst_name = new ObservableField<>();
     public ObservableField<String> time = new ObservableField<>();
+    public ObservableField<String> purchase_time = new ObservableField<>();
     public ObservableField<String> used_times = new ObservableField<>();
     public ObservableField<String> total_degree = new ObservableField<>();
 
@@ -24,6 +25,7 @@ public class OrderItemViewModel {
         this.cour_name.set(bean.courseName);
         this.inst_name.set(bean.instName);
         this.time.set(App.getInstance().getResources().getString(R.string.time_length, bean.courseTime));
+        this.purchase_time.set(bean.purchase_time);
         this.used_times.set(bean.useNumber + "次");
         this.total_degree.set(bean.unUseNumber + "次");
     }

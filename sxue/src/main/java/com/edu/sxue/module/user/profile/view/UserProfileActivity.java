@@ -55,9 +55,9 @@ public class UserProfileActivity extends BaseActivity<ActivityUserdataBinding> i
                         mBinding.cvNick.getInfoText(),
                         mBinding.cvSex.getInfoText().equals("男") ? "1" : "2",
                         mBinding.cvBirthday.getInfoText(),
-                        mBinding.cvHeight.getInfoText(),
+                        mBinding.etHeight.getText().toString(),
                         mBinding.cvAddress.getInfoText(),
-                        mBinding.cvWeight.getInfoText(),
+                        mBinding.etWeight.getText().toString(),
                         mBinding.cvPhone.getInfoText(),
                         mBinding.cvSchool.getInfoText()));
         mBinding.setViewModel(mViewModel);
@@ -79,8 +79,8 @@ public class UserProfileActivity extends BaseActivity<ActivityUserdataBinding> i
                     mBinding.cvSex.setInfoText(bean.sex);
                     mBinding.cvBirthday.setInfoText(bean.birthdate);
                     mBinding.cvAddress.setInfoText(bean.address);
-                    mBinding.cvHeight.setInfoText(bean.health);
-                    mBinding.cvWeight.setInfoText(bean.weight);
+                    mBinding.etHeight.setText(bean.health);
+                    mBinding.etWeight.setText(bean.weight);
                     mBinding.cvPhone.setInfoText(bean.phone);
                     mBinding.cvSchool.setInfoText(bean.school);
                     break;

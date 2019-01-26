@@ -22,5 +22,6 @@ public class UserOrderBean {
     public String useNumber;
     public String unUseNumber;
     public String course_id;
+    public String purchase_time;
 
 }
