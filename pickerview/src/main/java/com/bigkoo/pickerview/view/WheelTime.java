@@ -25,7 +25,7 @@ public class WheelTime {
 	private WheelView wv_mins;
 
 	private Type type;
-	public static final int DEFULT_START_YEAR = 1990;
+	public static final int DEFULT_START_YEAR = 1960;
 	public static final int DEFULT_END_YEAR = 2100;
 	private int startYear = DEFULT_START_YEAR;
 	private int endYear = DEFULT_END_YEAR;
